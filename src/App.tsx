@@ -1,12 +1,16 @@
-import './App.css';
+import "./App.css";
+import backgroundImage from "./assets/images/background-pic.jpg";
+
+import SplashScreen from "./pages/splash/SplashScreen";
 
 function App() {
   return (
-    <>
-      <h1 className='text-3xl font-bold text-purple-500'>
-        Tailwind is working!
-      </h1>
-    </>
+    <div
+      className="relative min-h-screen w-full bg-cover bg-center bg-no-repeat flex items-center justify-center overflow-hidden"
+      style={{ backgroundImage: `url(${backgroundImage})` }}
+    >
+      <SplashScreen />
+    </div>
   );
 }
 
