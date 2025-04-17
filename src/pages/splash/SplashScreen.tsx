@@ -1,12 +1,8 @@
-import backgroundImage from "../../assets/images/background-pic.jpg";
 import logo from "../../assets/images/logo.png";
 
 const SplashScreen = () => {
   return (
-    <div
-      className="relative min-h-screen w-full bg-cover bg-center bg-no-repeat flex items-center justify-center overflow-hidden p-4"
-      style={{ backgroundImage: `url(${backgroundImage})` }}
-    >
+    <div className="flex justify-center items-center w-full h-full">
       <img
         src={logo}
         alt="Logo"
