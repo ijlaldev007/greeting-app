@@ -1,6 +1,6 @@
 import React from "react";
 
-interface InputProps {
+interface TextInputProps {
   label?: string;
   placeholder: string;
   type?: string;
@@ -8,7 +8,7 @@ interface InputProps {
   onChange?: (value: string) => void;
 }
 
-const CustomInput: React.FC<InputProps> = ({
+const CustomInput: React.FC<TextInputProps> = ({
   label,
   placeholder,
   type = "text",
