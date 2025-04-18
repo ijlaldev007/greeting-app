@@ -1,6 +1,6 @@
 import "./App.css";
 import backgroundImage from "./assets/images/background-pic.jpg";
-import Input from "./components/input/Input";
+import Input from "./components/input/TextInput";
 
 function App() {
   return (
