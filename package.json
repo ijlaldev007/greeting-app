@@ -16,8 +16,7 @@
     "react": "^19.0.0",
     "react-custom-scroll": "^7.0.0",
     "react-dom": "^19.0.0",
-    "react-phone-input-2": "^2.15.1",
-    "swiper": "^11.2.6"
+    "react-phone-input-2": "^2.15.1"
   },
   "devDependencies": {
     "@eslint/js": "^9.22.0",
