@@ -1,6 +1,7 @@
 import './App.css';
 import backgroundImage from './assets/images/background-pic.jpg';
 //import Input from './components/input/TextInput';
+import './styles/scrollbar.css';
 import VideoScroller from './components/videoscroller/VideoScroller';
 
 function App() {
@@ -10,7 +11,7 @@ function App() {
       style={{ backgroundImage: `url(${backgroundImage})` }}
     >
       {/* <Input type="text" placeholder="Date of Birth" label="Full Name" /> */}
-      <VideoScroller />
+      <VideoScroller containerHeight={600} />
     </div>
   );
 }
