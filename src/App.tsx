@@ -8,7 +8,7 @@ function App() {
       className="relative min-h-screen w-full bg-cover bg-center bg-no-repeat flex items-center justify-center overflow-hidden p-4"
       style={{ backgroundImage: `url(${backgroundImage})` }}
     >
-      <Input type="text" placeholder="Enter your name" label="Full Name" />
+      <Input type="text" placeholder="Date of Birth" label="Full Name" />
     </div>
   );
 }
