@@ -44,13 +44,11 @@ const PhoneNumberInput: React.FC = () => {
     <div className="w-full max-w-[400px] relative space-y-1">
       {/* Top Left Label */}
       <div className="flex justify-start">
-        <label className="text-sm font-medium text-gray-700">
-          Phone Number
-        </label>
+        <label className="text-sm  text-gray-700 font-bold">Phone Number</label>
       </div>
 
       {/* Phone Input */}
-      <div className="relative flex items-center h-[51px] rounded-[30px] border bg-white focus-within:ring-2 focus-within:ring-pink-500 transition-all px-4">
+      <div className="relative flex items-center h-[51px] rounded-[30px]  bg-white focus-within:ring-2 focus-within:ring-pink-500 transition-all px-4">
         <button
           type="button"
           onClick={() => setShowDropdown(!showDropdown)}
@@ -66,7 +64,7 @@ const PhoneNumberInput: React.FC = () => {
           value={phone}
           onChange={handlePhoneChange}
           placeholder="Enter phone number"
-          className="flex-1 h-full outline-none text-base text-gray-800 placeholder-gray-400 bg-transparent border-0"
+          className="flex-1 h-full outline-none text-base text-gray-800 placeholder-gray-400 bg-transparent border-none"
         />
       </div>
 

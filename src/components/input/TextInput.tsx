@@ -16,7 +16,7 @@ const CustomInput: React.FC<TextInputProps> = ({
   onChange,
 }) => {
   return (
-    <div className="w-full max-w-[343px] space-y-1 relative">
+    <div className="w-full space-y-1 relative">
       {label && (
         <label className="block text-sm font-bold text-gray-700 text-start">
           {label}
