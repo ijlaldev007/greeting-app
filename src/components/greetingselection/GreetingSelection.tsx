@@ -1,44 +1,59 @@
 // src/components/GreetingSelection/GreetingSelection.tsx
+import React, { useState } from "react";
+import "./GreetingSelection.css";
 
-import React, { useState } from 'react';
-import { greetings } from '../../constants/greetings';
-import './GreetingSelection.css';
+type Option = {
+  id: number;
+  name: string;
+};
 
-const GreetingSelection: React.FC = () => {
-  const [selectedGreeting, setSelectedGreeting] = useState<number | null>(4); // Default to Merry Christmas
+interface GreetingSelectionProps {
+  options: Option[]; // 👈 Accept any data array (greetings, relations)
+  defaultSelectedId?: number; // 👈 Optional default selection
+  onSelect?: (id: number) => void; // 👈 Optional callback when selected
+}
 
-  const handleSelectGreeting = (id: number) => {
-    setSelectedGreeting(id);
+const GreetingSelection: React.FC<GreetingSelectionProps> = ({
+  options,
+  defaultSelectedId = null,
+  onSelect,
+}) => {
+  const [selectedId, setSelectedId] = useState<number | null>(
+    defaultSelectedId
+  );
+
+  const handleSelect = (id: number) => {
+    setSelectedId(id);
+    onSelect?.(id); // Call the callback if provided
   };
 
   return (
-    <div className='greeting-container shadow-md'>
-      <div className='greeting-selection scrollbar w-[90vw] sm:w-[80vw] md:w-[70vw] lg:w-[50vw] xl:w-[40vw] h-[420px] sm:h-[380px] md:h-[400px] lg:h-[450px] xl:h-[500px]'>
-        {greetings.map((greeting) => (
+    <div className="greeting-container shadow-md">
+      <div className="greeting-selection scrollbar w-[90vw] sm:w-[80vw] md:w-[70vw] lg:w-[50vw] xl:w-[40vw] h-[420px] sm:h-[380px] md:h-[400px] lg:h-[450px] xl:h-[500px]">
+        {options.map((item) => (
           <div
-            key={greeting.id}
+            key={item.id}
             className={`greeting-item ${
-              selectedGreeting === greeting.id ? 'selected' : ''
+              selectedId === item.id ? "selected" : ""
             }`}
           >
-            {selectedGreeting === greeting.id && (
+            {selectedId === item.id && (
               <img
-                src='/src/assets/images/sidemasha.png'
-                alt='selected indicator'
-                className='selected-icon'
+                src="/src/assets/images/sidemasha.png"
+                alt="selected indicator"
+                className="selected-icon"
               />
             )}
-            <label className='greeting-label'>
+            <label className="greeting-label">
               <input
-                type='radio'
-                name='greeting'
-                value={greeting.id}
-                checked={selectedGreeting === greeting.id}
-                onChange={() => handleSelectGreeting(greeting.id)}
-                className='greeting-radio'
+                type="radio"
+                name="selection"
+                value={item.id}
+                checked={selectedId === item.id}
+                onChange={() => handleSelect(item.id)}
+                className="greeting-radio"
               />
-
-              <span className='greeting-text'>{greeting.name}</span>
+              <span className="greeting-text">{item.name}</span>
             </label>
           </div>
         ))}
