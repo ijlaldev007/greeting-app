@@ -2,6 +2,7 @@ import { useNavigate } from 'react-router-dom';
 import NumberInput from '../../components/input/NumberInput';
 import EmailInput from '../../components/input/TextInput';
 import Button from '../../components/button/Button';
+import ButtonContainer from '../../components/button/ButtonContainer';
 import mashaImage from '../../assets/images/signup img.png';
 
 const SignUp = () => {
@@ -40,14 +41,14 @@ const SignUp = () => {
       </h2>
 
       {/* Continue Button */}
-      <div className='mt-10 w-full max-w-sm'>
+      <ButtonContainer>
         <Button
           text='Next'
           onClick={handleNext}
           bgColor='#C90082'
           textColor='#FFFFFF'
         />
-      </div>
+      </ButtonContainer>
     </div>
   );
 };

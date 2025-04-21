@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import GreetingSelection from '../../components/greetingselection/GreetingSelection';
 import Button from '../../components/button/Button';
+import ButtonContainer from '../../components/button/ButtonContainer';
 import { greetings } from '../../constants/greetings';
 
 export default function GreetingDetailsPage() {
@@ -32,15 +33,14 @@ export default function GreetingDetailsPage() {
       </div>
 
       {/* Next Button */}
-      <div className='w-full max-w-md'>
+      <ButtonContainer>
         <Button
           text='Next'
           onClick={handleNext}
           bgColor='#C90082'
           textColor='#FFFFFF'
-          className='w-full py-3 rounded-full text-base font-semibold mb-[25px]'
         />
-      </div>
+      </ButtonContainer>
     </div>
   );
 }

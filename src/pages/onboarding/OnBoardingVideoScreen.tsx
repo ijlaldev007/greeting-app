@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import Video from '../../components/video/Video';
 import Button from '../../components/button/Button';
+import ButtonContainer from '../../components/button/ButtonContainer';
 
 const OnBoardingVideoScreen = () => {
   const navigate = useNavigate();
@@ -18,7 +19,7 @@ const OnBoardingVideoScreen = () => {
       </div>
 
       {/* Bottom Buttons */}
-      <div className='mt-8 flex flex-col items-center space-y-4 w-full max-w-sm mx-auto md:max-w-md'>
+      <ButtonContainer>
         <Button
           text='Next'
           onClick={handleNavigation}
@@ -31,7 +32,7 @@ const OnBoardingVideoScreen = () => {
           bgColor='#FFFFFF'
           textColor='#C90082'
         />
-      </div>
+      </ButtonContainer>
     </div>
   );
 };

@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import Button from '../../components/button/Button';
+import ButtonContainer from '../../components/button/ButtonContainer';
 import VideoComponent from '../../components/videoscroller/VideoScroller';
 
 export default function GreetingLocationPage() {
@@ -22,15 +23,14 @@ export default function GreetingLocationPage() {
       <VideoComponent />
 
       {/* Next Button */}
-      <div className='w-full max-w-md mt-6'>
+      <ButtonContainer>
         <Button
           text='Next'
           onClick={handleNext}
           bgColor='#C90082'
           textColor='#FFFFFF'
-          className='w-full py-3 rounded-full text-base font-semibold'
         />
-      </div>
+      </ButtonContainer>
     </div>
   );
 }

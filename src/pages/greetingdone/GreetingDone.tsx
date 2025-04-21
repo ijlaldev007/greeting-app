@@ -1,4 +1,5 @@
 import Button from '../../components/button/Button';
+import ButtonContainer from '../../components/button/ButtonContainer';
 import mashaImage from '../../assets/images/signup img.png';
 
 const GreetingDone = () => {
@@ -46,15 +47,14 @@ const GreetingDone = () => {
       </div>
 
       {/* Continue Button */}
-      <div className='mt-10 w-full max-w-sm'>
+      <ButtonContainer>
         <Button
-          className='w-full'
           text='Done'
           onClick={() => console.log('Continue clicked')}
           bgColor='#C90082'
           textColor='#FFFFFF'
         />
-      </div>
+      </ButtonContainer>
     </div>
   );
 };
