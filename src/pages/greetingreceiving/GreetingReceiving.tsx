@@ -18,8 +18,8 @@ export default function GreetingReceivingPage() {
   };
 
   return (
-    <div className='w-full sm:w-full lg:w-1/2 min-h-screen flex flex-col items-center justify-between px-4 py-10'>
-      <div className='px-2 sm:px-4 py-4 w-full flex flex-col items-center gap-2'>
+    <div className='w-full sm:w-full lg:w-1/2 min-h-screen flex flex-col items-center justify-between px-4 pt-6 pb-0'>
+      <div className='w-full flex flex-col items-center gap-2'>
         {/* Responsive Heading - stays on one line for larger screens */}
         <h1 className='text-2xl sm:text-3xl font-bold text-center leading-tight whitespace-normal sm:whitespace-nowrap'>
           Who is receiving the video greeting?
@@ -43,7 +43,7 @@ export default function GreetingReceivingPage() {
       </h2>
 
       {/* Greeting Selection */}
-      <div className='w-full h-[300px] md:h-[600px] lg:h-[330px]'>
+      <div className='w-full flex-1'>
         <GreetingSelection
           options={relations}
           defaultSelectedId={4}

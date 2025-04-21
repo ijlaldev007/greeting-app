@@ -17,14 +17,14 @@ export default function GreetingDetailsPage() {
   };
 
   return (
-    <div className='w-full sm:w-full lg:w-1/2 min-h-screen flex flex-col items-center justify-between px-4 py-10'>
+    <div className='w-full sm:w-full lg:w-1/2 min-h-screen flex flex-col items-center justify-between px-4 pt-6 pb-0'>
       {/* Heading */}
-      <h1 className='text-3xl font-bold text-center mb-6'>
+      <h1 className='text-3xl font-bold text-center mb-4'>
         What do you want to congratulate with?
       </h1>
 
       {/* Greeting Selection Component */}
-      <div className='w-full h-[440px] md:h-[600px] lg:h-[520px]'>
+      <div className='w-full flex-1'>
         <GreetingSelection
           options={greetings}
           defaultSelectedId={4} // Optional: Default to "Merry Christmas"
