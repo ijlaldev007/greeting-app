@@ -1,35 +1,82 @@
 import React, { useState } from 'react';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from 'react-router-dom';
 import './App.css';
 import backgroundImage from './assets/images/background-pic.jpg';
+
+// Page Components
+import Home from './pages/home/Home';
+import NotFound from './pages/notfound/NotFound';
+import SplashScreen from './pages/splash/SplashScreen';
+import OnBoardingVideoScreen from './pages/onboarding/OnBoardingVideoScreen';
+import SignUp from './pages/signup/SignUp';
+import SenderDetail from './pages/senderdetail/SenderDetail';
 import GreetingLocation from './pages/greetinglocation/GreetingLocation';
+import GreetingDetails from './pages/greetingdetails/GreetingDetails';
+import GreetingReceiving from './pages/greetingreceiving/GreetingReceiving';
+import GreetingDone from './pages/greetingdone/GreetingDone';
+
+// Demo Components
 import VideoScroller from './components/videoscroller/VideoScroller';
 import TextGenerationDemo from './components/textgeneration/TextGenerationDemo';
 
+// Navigation
+import Navigation from './components/navigation/Navigation';
+
 function App() {
-  const [showVideoScroller, setShowVideoScroller] = useState(false);
+  const [showNav, setShowNav] = useState(true);
+
   return (
-    <div
-      className='relative min-h-screen w-full bg-cover bg-center bg-no-repeat flex items-center justify-center overflow-hidden p-4'
-      style={{ backgroundImage: `url(${backgroundImage})` }}
-    >
-      {/* Toggle between components for demo purposes */}
-      {showVideoScroller ? (
-        <VideoScroller containerHeight={600} />
-      ) : (
-        <TextGenerationDemo />
-      )}
-
-      {/* Toggle button */}
-      <button
-        className='absolute bottom-4 right-4 bg-blue-500 text-white px-4 py-2 rounded-md'
-        onClick={() => setShowVideoScroller(!showVideoScroller)}
+    <Router>
+      <div
+        className='relative min-h-screen w-full bg-cover bg-center bg-no-repeat flex flex-col overflow-hidden'
+        style={{ backgroundImage: `url(${backgroundImage})` }}
       >
-        Switch to {showVideoScroller ? 'Text Generation' : 'Video Scroller'}
-      </button>
+        {/* Navigation */}
+        {showNav && <Navigation />}
 
-      {/* Greeting Location Component */}
-      <GreetingLocation />
-    </div>
+        {/* Toggle Navigation Button */}
+        <button
+          className='fixed top-2 right-2 z-50 bg-white bg-opacity-80 p-1 rounded-full shadow-md'
+          onClick={() => setShowNav(!showNav)}
+        >
+          {showNav ? '✕' : '☰'}
+        </button>
+
+        {/* Main Content */}
+        <div className='flex-1 flex items-center justify-center p-4 pt-16'>
+          <Routes>
+            {/* Main Application Flow */}
+            <Route path='/' element={<Home />} />
+            <Route path='/splash' element={<SplashScreen />} />
+            <Route path='/onboarding' element={<OnBoardingVideoScreen />} />
+            <Route path='/signup' element={<SignUp />} />
+            <Route path='/sender-details' element={<SenderDetail />} />
+            <Route path='/greeting-location' element={<GreetingLocation />} />
+            <Route path='/greeting-details' element={<GreetingDetails />} />
+            <Route path='/greeting-receiving' element={<GreetingReceiving />} />
+            <Route path='/greeting-done' element={<GreetingDone />} />
+
+            {/* Demo Routes */}
+            <Route
+              path='/demo/video-scroller'
+              element={<VideoScroller containerHeight={600} />}
+            />
+            <Route
+              path='/demo/text-generation'
+              element={<TextGenerationDemo />}
+            />
+
+            {/* Fallback route */}
+            <Route path='*' element={<NotFound />} />
+          </Routes>
+        </div>
+      </div>
+    </Router>
   );
 }
 

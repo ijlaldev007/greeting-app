@@ -1,11 +1,19 @@
+import { useNavigate } from 'react-router-dom';
 import GreetingSelection from "../../components/greetingselection/GreetingSelection";
 import Button from "../../components/button/Button";
-import TextInput from "../../components/input/TextInput"; // Assuming your custom input component
+import TextInput from "../../components/input/TextInput";
 import { relations } from "../../constants//Relations";
 
-export default function GreetingDetailsPage() {
+export default function GreetingReceivingPage() {
+  const navigate = useNavigate();
+  
   const handleSelectGreeting = (id: number) => {
     console.log("Selected Relation ID:", id);
+  };
+
+  // Navigate to greeting done page
+  const handleNext = () => {
+    navigate("/greeting-done");
   };
 
   return (
@@ -18,12 +26,12 @@ export default function GreetingDetailsPage() {
 
         {/* Light grey instruction */}
         <p className="text-gray-400 text-sm text-center -mt-1">
-          Type recipient’s name
+          Type recipient's name
         </p>
 
         {/* Text Input for recipient's name */}
         <TextInput
-          placeholder="Recipient’s name here..."
+          placeholder="Recipient's name here..."
           className="w-full max-w-md text-gray-600 placeholder-gray-400"
         />
       </div>
@@ -46,7 +54,7 @@ export default function GreetingDetailsPage() {
       <div className="w-full mt-6">
         <Button
           text="Next"
-          onClick={() => console.log("Next clicked")}
+          onClick={handleNext}
           bgColor="#C90082"
           textColor="#FFFFFF"
           className="w-full py-3 rounded-full text-base font-semibold"

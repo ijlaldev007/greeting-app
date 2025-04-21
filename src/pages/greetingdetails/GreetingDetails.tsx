@@ -1,36 +1,44 @@
-import GreetingSelection from "../../components/greetingselection/GreetingSelection";
-import Button from "../../components/button/Button";
-import { greetings } from "../../constants/greetings"; // or import { relations } from "../../constants/relations"
+import { useNavigate } from 'react-router-dom';
+import GreetingSelection from '../../components/greetingselection/GreetingSelection';
+import Button from '../../components/button/Button';
+import { greetings } from '../../constants/greetings';
 
 export default function GreetingDetailsPage() {
+  const navigate = useNavigate();
+
   const handleSelectGreeting = (id: number) => {
-    console.log("Selected Greeting ID:", id);
+    console.log('Selected Greeting ID:', id);
+  };
+
+  // Navigate to greeting receiving page
+  const handleNext = () => {
+    navigate('/greeting-receiving');
   };
 
   return (
-    <div className="w-full sm:w-full lg:w-1/2 min-h-screen flex flex-col items-center justify-around px-4">
+    <div className='w-full sm:w-full lg:w-1/2 min-h-screen flex flex-col items-center justify-around px-4'>
       {/* Heading */}
-      <h1 className="text-3xl font-bold text-center mb-6">
+      <h1 className='text-3xl font-bold text-center mb-6'>
         What do you want to congratulate with?
       </h1>
 
       {/* Greeting Selection Component */}
-      <div className="w-full h-[440px] md:h-[600px] lg:h-[520px]">
+      <div className='w-full h-[440px] md:h-[600px] lg:h-[520px]'>
         <GreetingSelection
-          options={greetings} // You can replace this with 'relations'
+          options={greetings}
           defaultSelectedId={4} // Optional: Default to "Merry Christmas"
           onSelect={handleSelectGreeting}
         />
       </div>
 
       {/* Next Button */}
-      <div className="w-full max-w-md">
+      <div className='w-full max-w-md'>
         <Button
-          text="Next"
-          onClick={() => console.log("Next clicked")}
-          bgColor="#C90082"
-          textColor="#FFFFFF"
-          className="w-full py-3 rounded-full text-base font-semibold mb-[25px]"
+          text='Next'
+          onClick={handleNext}
+          bgColor='#C90082'
+          textColor='#FFFFFF'
+          className='w-full py-3 rounded-full text-base font-semibold mb-[25px]'
         />
       </div>
     </div>
