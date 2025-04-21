@@ -1,6 +1,6 @@
 import "./App.css";
 import backgroundImage from "./assets/images/background-pic.jpg";
-import GreetingDone from "./pages/greetingdone/GreetingDone";
+import GreetingReceiving from "./pages/greetingreceiving/GreetingReceiving";
 
 function App() {
   return (
@@ -9,8 +9,7 @@ function App() {
       style={{ backgroundImage: `url(${backgroundImage})` }}
     >
       {/* <Input type="text" placeholder="Date of Birth" label="Full Name" /> */}
-      <GreetingDone />
-      {/* <SenderDetail /> */}
+      <GreetingReceiving />
     </div>
   );
 }
