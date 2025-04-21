@@ -14,13 +14,20 @@ interface UserData {
   occasion: string;
 }
 
-const TextGenerationDemo: React.FC = () => {
+interface TextGenerationDemoProps {
+  greetingType?: GreetingType; // Optional prop to set the greeting type
+}
+
+const TextGenerationDemo: React.FC<TextGenerationDemoProps> = ({
+  greetingType: initialGreetingType = GreetingType.BIRTHDAY, // Default to BIRTHDAY if not provided
+}) => {
   // State for the current greeting template
   const [currentGreeting, setCurrentGreeting] =
     useState<GreetingTemplate | null>(null);
 
-  // Greeting type - would be passed from previous steps in real app
-  const greetingType = GreetingType.BIRTHDAY;
+  // State for greeting type - initialized from props
+  const [greetingType, setGreetingType] =
+    useState<GreetingType>(initialGreetingType);
 
   // State for share toggle
   const [isShared, setIsShared] = useState(false);
@@ -40,10 +47,15 @@ const TextGenerationDemo: React.FC = () => {
     { id: 'age', text: 'age', value: userData.age },
   ];
 
-  // Load initial greeting on component mount
+  // Update greeting type when prop changes
   useEffect(() => {
-    const initialGreeting = getRandomGreetingByType(greetingType);
-    setCurrentGreeting(initialGreeting);
+    setGreetingType(initialGreetingType);
+  }, [initialGreetingType]);
+
+  // Load greeting when greeting type changes
+  useEffect(() => {
+    const newGreeting = getRandomGreetingByType(greetingType);
+    setCurrentGreeting(newGreeting);
   }, [greetingType]);
 
   // Function to generate different text
@@ -66,27 +78,6 @@ const TextGenerationDemo: React.FC = () => {
 
   return (
     <div className='text-generation-demo-container'>
-      {/* Display user data from previous steps */}
-      <div className='user-data'>
-        <h3>User Data from Previous Steps</h3>
-        <div className='user-data-item'>
-          <span className='user-data-label'>Recipient:</span>
-          <span className='user-data-value'>{userData.recipient}</span>
-        </div>
-        <div className='user-data-item'>
-          <span className='user-data-label'>Sender:</span>
-          <span className='user-data-value'>{userData.sender}</span>
-        </div>
-        <div className='user-data-item'>
-          <span className='user-data-label'>Age:</span>
-          <span className='user-data-value'>{userData.age}</span>
-        </div>
-        <div className='user-data-item'>
-          <span className='user-data-label'>Occasion:</span>
-          <span className='user-data-value'>{userData.occasion}</span>
-        </div>
-      </div>
-
       {/* Text Generation Component */}
       <TextGeneration
         initialText={currentGreeting.text}

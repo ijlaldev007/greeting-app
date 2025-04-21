@@ -40,7 +40,7 @@ export const loadVideos = async (): Promise<VideoItem[]> => {
  */
 export const toggleVideoPlayback = (
   videoElement: HTMLVideoElement | null,
-  isPlaying: boolean
+  isPlaying: boolean,
 ): boolean => {
   if (!videoElement) return isPlaying;
 

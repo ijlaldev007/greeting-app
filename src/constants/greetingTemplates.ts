@@ -19,6 +19,11 @@ export enum GreetingType {
   THANK_YOU = 'thank_you',
   GET_WELL = 'get_well',
   HOLIDAY = 'holiday',
+  ANNIVERSARY = 'anniversary',
+  FAMILY = 'family',
+  SYMPATHY = 'sympathy',
+  FRIENDSHIP = 'friendship',
+  GENERAL = 'general',
 }
 
 // Birthday greeting templates
@@ -49,7 +54,7 @@ export const BIRTHDAY_GREETINGS: GreetingTemplate[] = [
 export const CONGRATULATIONS_GREETINGS: GreetingTemplate[] = [
   {
     id: 'congrats-1',
-    text: "Congratulations, [recipient]! Masha here. [sender] told me about your amazing achievement, and I had to send my congratulations! Your hard work and dedication have truly paid off. Keep shining bright! Cheers, Masha.",
+    text: 'Congratulations, [recipient]! Masha here. [sender] told me about your amazing achievement, and I had to send my congratulations! Your hard work and dedication have truly paid off. Keep shining bright! Cheers, Masha.',
     type: GreetingType.CONGRATULATIONS,
   },
   {
@@ -68,7 +73,7 @@ export const CONGRATULATIONS_GREETINGS: GreetingTemplate[] = [
 export const THANK_YOU_GREETINGS: GreetingTemplate[] = [
   {
     id: 'thanks-1',
-    text: "Dear [recipient], Masha here. [sender] told me about your kindness, and I wanted to express my sincere gratitude. Your thoughtfulness means more than you know. Thank you for being such an amazing person! Warmly, Masha.",
+    text: 'Dear [recipient], Masha here. [sender] told me about your kindness, and I wanted to express my sincere gratitude. Your thoughtfulness means more than you know. Thank you for being such an amazing person! Warmly, Masha.',
     type: GreetingType.THANK_YOU,
   },
   {
@@ -106,7 +111,7 @@ export const GET_WELL_GREETINGS: GreetingTemplate[] = [
 export const HOLIDAY_GREETINGS: GreetingTemplate[] = [
   {
     id: 'holiday-1',
-    text: "Happy Holidays, [recipient]! Masha here. [sender] wanted me to send you warm wishes for a wonderful holiday season. May this special time be filled with joy, peace, and precious moments with loved ones. Wishing you all the best! Cheers, Masha.",
+    text: 'Happy Holidays, [recipient]! Masha here. [sender] wanted me to send you warm wishes for a wonderful holiday season. May this special time be filled with joy, peace, and precious moments with loved ones. Wishing you all the best! Cheers, Masha.',
     type: GreetingType.HOLIDAY,
   },
   {
@@ -116,8 +121,78 @@ export const HOLIDAY_GREETINGS: GreetingTemplate[] = [
   },
   {
     id: 'holiday-3',
-    text: "Warm wishes to you, [recipient]! Masha here. As the year comes to a close, [sender] and I wanted to send you our heartfelt holiday greetings. May your days be merry and bright, and may the coming year be everything you hope for. Happy Holidays! From, Masha.",
+    text: 'Warm wishes to you, [recipient]! Masha here. As the year comes to a close, [sender] and I wanted to send you our heartfelt holiday greetings. May your days be merry and bright, and may the coming year be everything you hope for. Happy Holidays! From, Masha.',
     type: GreetingType.HOLIDAY,
+  },
+];
+
+// Anniversary greeting templates
+export const ANNIVERSARY_GREETINGS: GreetingTemplate[] = [
+  {
+    id: 'anniversary-1',
+    text: 'Happy Anniversary, [recipient]! Masha here. [sender] wanted me to send special wishes on your anniversary. May your love continue to grow stronger with each passing year. Wishing you many more beautiful years together! Cheers, Masha.',
+    type: GreetingType.ANNIVERSARY,
+  },
+  {
+    id: 'anniversary-2',
+    text: "Congratulations on your anniversary, [recipient]! It's Masha. [sender] reminded me of your special day, and I wanted to join in celebrating your wonderful journey together. Here's to many more years of love and happiness! Best wishes, Masha.",
+    type: GreetingType.ANNIVERSARY,
+  },
+];
+
+// Family greeting templates
+export const FAMILY_GREETINGS: GreetingTemplate[] = [
+  {
+    id: 'family-1',
+    text: "Happy Mother's Day, [recipient]! Masha here. [sender] wanted me to let you know what an amazing mother you are. Your love and dedication are truly inspiring. Wishing you a day filled with joy and appreciation! With admiration, Masha.",
+    type: GreetingType.FAMILY,
+  },
+  {
+    id: 'family-2',
+    text: "Happy Father's Day, [recipient]! It's Masha. [sender] asked me to send you warm wishes on this special day. Your strength and guidance mean so much to your family. Hope your day is as wonderful as you are! Best, Masha.",
+    type: GreetingType.FAMILY,
+  },
+];
+
+// Sympathy greeting templates
+export const SYMPATHY_GREETINGS: GreetingTemplate[] = [
+  {
+    id: 'sympathy-1',
+    text: "Dear [recipient], Masha here. [sender] told me about your recent loss, and I wanted to express my deepest condolences. Please know that you're in my thoughts during this difficult time. Wishing you comfort and peace. With sympathy, Masha.",
+    type: GreetingType.SYMPATHY,
+  },
+  {
+    id: 'sympathy-2',
+    text: "To [recipient], It's Masha. I was so sorry to hear from [sender] about your loss. There are no words that can ease your pain, but please know that you're not alone. Sending you strength and support during this challenging time. With heartfelt sympathy, Masha.",
+    type: GreetingType.SYMPATHY,
+  },
+];
+
+// Friendship greeting templates
+export const FRIENDSHIP_GREETINGS: GreetingTemplate[] = [
+  {
+    id: 'friendship-1',
+    text: "Hey [recipient]! Masha here. [sender] mentioned what a wonderful friend you are, and I just wanted to send a note to celebrate your friendship. True friends are rare treasures, and you're one of the best! Warmly, Masha.",
+    type: GreetingType.FRIENDSHIP,
+  },
+  {
+    id: 'friendship-2',
+    text: "To my friend [recipient], It's Masha. [sender] told me about your amazing friendship, and it inspired me to reach out. Thank you for being such a caring and supportive friend. Your kindness makes the world a better place! With appreciation, Masha.",
+    type: GreetingType.FRIENDSHIP,
+  },
+];
+
+// General greeting templates
+export const GENERAL_GREETINGS: GreetingTemplate[] = [
+  {
+    id: 'general-1',
+    text: "Hello [recipient]! Masha here. [sender] asked me to send you a special message just to brighten your day. Sometimes the best messages need no special occasion - just a reminder that you're appreciated and valued. Hope this brings a smile! Cheers, Masha.",
+    type: GreetingType.GENERAL,
+  },
+  {
+    id: 'general-2',
+    text: "Greetings [recipient]! It's Masha. [sender] thought you might enjoy a surprise message today. No special reason - just a friendly hello to let you know you're in someone's thoughts. Wishing you a wonderful day! Best wishes, Masha.",
+    type: GreetingType.GENERAL,
   },
 ];
 
@@ -128,6 +203,11 @@ export const ALL_GREETINGS: GreetingTemplate[] = [
   ...THANK_YOU_GREETINGS,
   ...GET_WELL_GREETINGS,
   ...HOLIDAY_GREETINGS,
+  ...ANNIVERSARY_GREETINGS,
+  ...FAMILY_GREETINGS,
+  ...SYMPATHY_GREETINGS,
+  ...FRIENDSHIP_GREETINGS,
+  ...GENERAL_GREETINGS,
 ];
 
 /**
@@ -138,7 +218,7 @@ export const ALL_GREETINGS: GreetingTemplate[] = [
  */
 export const getRandomGreetingsByType = (
   type: GreetingType,
-  count: number = 1
+  count: number = 1,
 ): GreetingTemplate[] => {
   let templates: GreetingTemplate[] = [];
 
@@ -158,6 +238,21 @@ export const getRandomGreetingsByType = (
     case GreetingType.HOLIDAY:
       templates = HOLIDAY_GREETINGS;
       break;
+    case GreetingType.ANNIVERSARY:
+      templates = ANNIVERSARY_GREETINGS;
+      break;
+    case GreetingType.FAMILY:
+      templates = FAMILY_GREETINGS;
+      break;
+    case GreetingType.SYMPATHY:
+      templates = SYMPATHY_GREETINGS;
+      break;
+    case GreetingType.FRIENDSHIP:
+      templates = FRIENDSHIP_GREETINGS;
+      break;
+    case GreetingType.GENERAL:
+      templates = GENERAL_GREETINGS;
+      break;
     default:
       templates = ALL_GREETINGS;
   }
@@ -173,7 +268,7 @@ export const getRandomGreetingsByType = (
  * @returns A single greeting template
  */
 export const getRandomGreetingByType = (
-  type: GreetingType
+  type: GreetingType,
 ): GreetingTemplate => {
   return getRandomGreetingsByType(type, 1)[0];
 };
