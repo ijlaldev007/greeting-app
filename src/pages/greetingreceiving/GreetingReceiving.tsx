@@ -28,8 +28,8 @@ export default function GreetingReceivingPage() {
       // Move to relationship selection step
       setStep(2);
     } else {
-      // Navigate to greeting done page
-      navigate('/greeting-done');
+      // Navigate to text preview page
+      navigate('/text-preview');
     }
   };
 

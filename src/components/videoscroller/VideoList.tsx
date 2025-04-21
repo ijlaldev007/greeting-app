@@ -23,7 +23,7 @@ const VideoList: React.FC<VideoListProps> = ({
   videoRefs,
 }) => {
   const gridRef = useRef<HTMLDivElement>(null);
-  const itemHeight = 220; // Height of each item (200px) + gap (20px)
+  const itemHeight = 190; // Height of each item (200px) + gap (20px)
 
   // Handle wheel events for one-item-at-a-time scrolling
   // Using useCallback to memoize the function

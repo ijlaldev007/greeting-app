@@ -22,7 +22,7 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
-  padding: 100px 15px 100px 0; /* Add top and bottom padding for centering space */
+  padding: 50px 15px 50px 0; /* Add top and bottom padding for centering space */
   width: 100%;
   max-width: 350px;
   margin: 0 auto;

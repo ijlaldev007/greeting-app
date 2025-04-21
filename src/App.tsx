@@ -17,6 +17,7 @@ import SenderDetail from './pages/senderdetail/SenderDetail';
 import GreetingLocation from './pages/greetinglocation/GreetingLocation';
 import GreetingDetails from './pages/greetingdetails/GreetingDetails';
 import GreetingReceiving from './pages/greetingreceiving/GreetingReceiving';
+import TextPreview from './pages/textpreview/TextPreview';
 import GreetingDone from './pages/greetingdone/GreetingDone';
 
 // Demo Components
@@ -44,6 +45,7 @@ function App() {
             <Route path='/greeting-location' element={<GreetingLocation />} />
             <Route path='/greeting-details' element={<GreetingDetails />} />
             <Route path='/greeting-receiving' element={<GreetingReceiving />} />
+            <Route path='/text-preview' element={<TextPreview />} />
             <Route path='/greeting-done' element={<GreetingDone />} />
 
             {/* Demo Routes */}
