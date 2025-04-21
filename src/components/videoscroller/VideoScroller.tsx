@@ -32,11 +32,15 @@ const VideoScroller: React.FC<VideoScrollerProps> = ({
       // All videos and thumbnails are loaded
       setLoading(false);
 
-      // Small delay to ensure the DOM has been updated
+      // Multiple delays to ensure the DOM has been updated and videos are centered
       setTimeout(() => {
         // Trigger a resize event to help center the selected video
         window.dispatchEvent(new Event('resize'));
       }, 100);
+
+      // Additional resize events with increasing delays for better reliability
+      setTimeout(() => window.dispatchEvent(new Event('resize')), 300);
+      setTimeout(() => window.dispatchEvent(new Event('resize')), 600);
     }
   }, [videos, thumbnails]);
 

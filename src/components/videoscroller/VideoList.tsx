@@ -106,27 +106,35 @@ const VideoList: React.FC<VideoListProps> = ({
 
   // Center the selected item when component mounts or selectedIndex changes
   useEffect(() => {
-    // Use requestAnimationFrame to ensure the DOM has been painted
-    const timeoutId = setTimeout(() => {
+    // Initial centering with a small delay
+    const initialTimeoutId = setTimeout(() => {
       centerSelectedItem();
-    }, 100); // Small delay to ensure the component is fully rendered
+    }, 100);
 
-    return () => clearTimeout(timeoutId);
+    // Additional centering after a longer delay to ensure everything is rendered
+    const secondTimeoutId = setTimeout(() => {
+      centerSelectedItem();
+    }, 500);
+
+    return () => {
+      clearTimeout(initialTimeoutId);
+      clearTimeout(secondTimeoutId);
+    };
   }, [centerSelectedItem]);
 
   // Also center the selected item when the grid is fully loaded
   useEffect(() => {
     if (gridRef.current) {
+      const gridElement = gridRef.current; // Store ref value in a variable for cleanup
+
       const observer = new ResizeObserver(() => {
         centerSelectedItem();
       });
 
-      observer.observe(gridRef.current);
+      observer.observe(gridElement);
 
       return () => {
-        if (gridRef.current) {
-          observer.unobserve(gridRef.current);
-        }
+        observer.unobserve(gridElement);
       };
     }
   }, [centerSelectedItem]);
