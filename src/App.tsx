@@ -1,7 +1,7 @@
 import './App.css';
 import backgroundImage from './assets/images/background-pic.jpg';
 //import Input from './components/input/TextInput';
-import './styles/scrollbar.css';
+
 import VideoScroller from './components/videoscroller/VideoScroller';
 
 function App() {

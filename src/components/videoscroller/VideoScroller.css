@@ -1,67 +1,20 @@
 .video-scroller-container {
   width: 100%;
+  height: 100%;
   position: relative;
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  overflow-y: auto;
-  overflow-x: hidden;
-  scrollbar-width: thin;
-  scrollbar-color: #c90082 #c9008240;
-  padding-top: 20px; /* Removed right padding from here */
-  /* Additional properties to control scrollbar appearance */
-  -ms-overflow-style: none; /* IE and Edge */
-}
-
-/* Custom scrollbar styling */
-.video-scroller-container::-webkit-scrollbar {
-  width: 3px;
-  background-color: #c9008240;
-  margin-right: 5px;
-}
-
-.video-scroller-container::-webkit-scrollbar-track {
-  background-color: #c9008240;
-  margin-right: 5px;
-}
-
-.video-scroller-container::-webkit-scrollbar-thumb {
-  background-color: #c90082;
-  border-radius: 100px;
-}
-
-.video-scroller-container::-webkit-scrollbar-thumb:hover {
-  background: #a8a8a8 !important;
-}
-
-/* Hide all scrollbar buttons */
-.video-scroller-container::-webkit-scrollbar-button {
-  height: 0;
-  width: 0;
-}
-
-/* Firefox specific scrollbar button hiding */
-.video-scroller-container::-moz-scrollbar-button:decrement,
-.video-scroller-container::-moz-scrollbar-button:increment {
-  height: 0;
-  width: 0;
-}
-
-/* Hide scrollbar corner */
-.video-scroller-container::-webkit-scrollbar-corner,
-.video-scroller-container::-moz-scrollbar-corner {
-  background: transparent;
+  overflow: hidden;
+  padding-top: 20px;
 }
 
 /* Mobile-specific adjustments */
 @media (max-width: 768px) {
   .video-grid {
-    width: calc(100% - 20px); /* More space for scrollbar on mobile */
-    right: 8px; /* Shift more to the left on mobile */
-  }
-
-  .video-scroller-container::-webkit-scrollbar {
-    margin-right: 8px; /* More margin on mobile */
+    width: 100%;
+    right: 0;
+    padding-right: 20px; /* More padding on mobile for scrollbar */
   }
 }
 
@@ -69,12 +22,45 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
-  padding: 0;
-  width: calc(100% - 15px); /* Subtract scrollbar space from width */
+  padding: 0 15px 0 0; /* Add right padding to create space for scrollbar */
+  width: 100%;
   max-width: 350px;
   margin: 0 auto;
   position: relative;
-  right: 5px; /* Shift slightly left to compensate for scrollbar space */
+  overflow-y: auto;
+  height: 100%;
+  /* Custom scrollbar styling */
+  scrollbar-width: thin;
+  scrollbar-color: #c90082 transparent;
+  /* Ensure smooth scrolling */
+  scroll-behavior: smooth;
+  /* Ensure items snap to grid */
+  scroll-snap-type: y mandatory;
+}
+
+/* WebKit browsers (Chrome, Safari, etc.) */
+.video-grid::-webkit-scrollbar {
+  width: 4px;
+  background-color: transparent;
+}
+
+.video-grid::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+.video-grid::-webkit-scrollbar-thumb {
+  background-color: #c90082;
+  border-radius: 100px;
+}
+
+.video-grid::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8 !important;
+}
+
+/* Hide scrollbar buttons */
+.video-grid::-webkit-scrollbar-button {
+  height: 0;
+  width: 0;
 }
 
 .video-item {
@@ -84,19 +70,20 @@
   transition: all 0.3s ease;
   margin: 0;
   padding: 0;
+  scroll-snap-align: start; /* Ensure items snap to grid */
 }
 
-.video-item video {
-  filter: grayscale(100%);
-  transition: filter 0.3s ease;
+.video-item .video-card {
+  opacity: 0.25; /* 25% opacity for non-selected videos */
+  transition: opacity 0.3s ease;
 }
 
 .video-item.selected {
   z-index: 10;
 }
 
-.video-item.selected video {
-  filter: grayscale(0%);
+.video-item.selected .video-card {
+  opacity: 1; /* 100% opacity for selected videos */
 }
 
 .video-card {
@@ -105,8 +92,8 @@
   max-width: 350px;
   position: relative;
   overflow: hidden;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 30px;
+
   margin: 0;
   padding: 0;
   display: flex;
@@ -118,6 +105,60 @@
   object-fit: cover;
   display: block;
   margin: 0;
-  padding: 0;
   flex: 1;
+}
+
+/* Play button styling */
+.play-button-overlay {
+  z-index: 5;
+  pointer-events: none; /* Allow clicks to pass through to the video */
+}
+
+.play-button-overlay svg {
+  filter: drop-shadow(
+    0px 0px 4px rgba(0, 0, 0, 0.5)
+  ); /* Add shadow for better visibility */
+}
+
+/* Skeleton loading styles */
+.skeleton-card {
+  background-color: #444444; /* Dark grey background */
+  position: relative;
+  overflow: hidden;
+  border-radius: 30px; /* Match the video card border radius */
+}
+
+.skeleton-animation {
+  position: relative;
+  overflow: hidden;
+  background-color: #333333; /* Darker grey background */
+  border-radius: 8px;
+  height: 100%;
+}
+
+.skeleton-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  animation: shimmer 1.8s infinite;
+  background: linear-gradient(90deg, #333333 0%, #555555 50%, #333333 100%);
+  opacity: 0.5;
+  transform: translateX(-100%);
+}
+
+.skeleton-play-button {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background-color: #555555; /* Light grey for play button */
+  position: relative;
+  overflow: hidden;
+}
+
+@keyframes shimmer {
+  100% {
+    transform: translateX(100%);
+  }
 }

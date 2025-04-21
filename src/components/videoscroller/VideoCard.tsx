@@ -26,7 +26,7 @@ const VideoCard = forwardRef<HTMLVideoElement, VideoCardProps>(
 
         {/* Play button overlay for videos that aren't playing */}
         {!isPlaying && (
-          <div className='absolute inset-0 flex items-center justify-center'>
+          <div className='play-button-overlay absolute inset-0 flex items-center justify-center'>
             <svg
               className='w-16 h-16 text-white'
               fill='currentColor'

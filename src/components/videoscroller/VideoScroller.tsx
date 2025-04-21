@@ -42,13 +42,14 @@ const VideoScroller: React.FC<VideoScrollerProps> = ({
     }
   };
 
-  // Show loading state if no videos found yet
+  // Use skeleton loading instead of text message
   if (videos.length === 0) {
     return (
-      <div className='' style={{ height: `${containerHeight}px` }}>
-        <div className='h-full flex items-center justify-center'>
-          <span className='text-gray-500'>Loading videos...</span>
-        </div>
+      <div
+        className='video-scroller-container'
+        style={{ height: `${containerHeight}px` }}
+      >
+        <VideoSkeleton count={3} />
       </div>
     );
   }
@@ -56,7 +57,7 @@ const VideoScroller: React.FC<VideoScrollerProps> = ({
   return (
     <div
       ref={containerRef}
-      className='overflow-y-auto video-scroller-container'
+      className='video-scroller-container'
       style={{
         height: `${containerHeight}px`,
       }}

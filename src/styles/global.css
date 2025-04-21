@@ -1,0 +1,16 @@
+/* Global styles */
+
+/* Hide default scrollbar on the main container */
+body, html {
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+}
+
+/* Ensure the root div takes full height */
+#root {
+  height: 100%;
+  width: 100%;
+}
