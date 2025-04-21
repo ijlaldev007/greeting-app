@@ -1,11 +1,8 @@
 import React, { useState } from 'react';
 import './App.css';
 import backgroundImage from './assets/images/background-pic.jpg';
-// Commented out unused imports
-// import Input from './components/input/TextInput';
-//import VideoScroller from './components/videoscroller/VideoScroller';
-// import SenderDetail from './pages/senderdetail/SenderDetail';
-import GreetingSelection from './components/greetingselection/GreetingSelection';
+import GreetingLocation from './pages/greetinglocation/GreetingLocation';
+import VideoScroller from './components/videoscroller/VideoScroller';
 import TextGenerationDemo from './components/textgeneration/TextGenerationDemo';
 
 function App() {
@@ -16,7 +13,11 @@ function App() {
       style={{ backgroundImage: `url(${backgroundImage})` }}
     >
       {/* Toggle between components for demo purposes */}
-      {showVideoScroller ? <GreetingSelection /> : <TextGenerationDemo />}
+      {showVideoScroller ? (
+        <VideoScroller containerHeight={600} />
+      ) : (
+        <TextGenerationDemo />
+      )}
 
       {/* Toggle button */}
       <button
@@ -25,7 +26,9 @@ function App() {
       >
         Switch to {showVideoScroller ? 'Text Generation' : 'Video Scroller'}
       </button>
-      {/* <SenderDetail /> */}
+
+      {/* Greeting Location Component */}
+      <GreetingLocation />
     </div>
   );
 }

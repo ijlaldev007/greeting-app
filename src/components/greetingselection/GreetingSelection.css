@@ -1,12 +1,31 @@
 .greeting-container {
   background-color: #fff;
-  border-radius: 30px;
+  border-radius: 20px;
+  padding: 5px 10px 5px 0px;
+  margin: -20px 0 0 0;
 }
 
 .greeting-selection {
-  margin: 10px 10px 10px 0;
-  overflow: overlay;
+  width: 99%;
+  overflow-y: auto;
+  overflow-x: hidden;
+    max-height: 100%;
+  border-radius: 20px;
+  height: 350px; /* default mobile height */
 }
+
+/* iPad and up */
+@media (min-width: 768px) {
+  .greeting-selection {
+    height: 500px;
+  }
+}
+@media (min-width: 1100px) {
+  .greeting-selection {
+    height: 350px;
+  }
+}
+
 
 .scrollbar {
   position: relative;
