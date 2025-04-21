@@ -97,17 +97,18 @@ const TextGenerationDemo: React.FC = () => {
 
       {/* Share toggle outside the card */}
       <div className='share-toggle-container'>
-        <div className='share-toggle'>
-          <span>Agree share</span>
-          <div className='toggle-container'>
-            <input
-              type='checkbox'
-              id='share-toggle'
-              checked={isShared}
-              onChange={handleShareToggle}
-            />
-            <label htmlFor='share-toggle' className='toggle-switch'></label>
-          </div>
+        <div className='share-toggle-text'>
+          <span>Agree to share</span>
+          <div className='info-icon'>i</div>
+        </div>
+        <div className='toggle-container'>
+          <input
+            type='checkbox'
+            id='share-toggle'
+            checked={isShared}
+            onChange={handleShareToggle}
+          />
+          <label htmlFor='share-toggle' className='toggle-switch'></label>
         </div>
       </div>
     </div>
