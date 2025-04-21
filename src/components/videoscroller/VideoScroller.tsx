@@ -1,9 +1,9 @@
-import React, { useRef, useState, useEffect } from 'react';
-import './VideoScroller.css';
-import { VideoScrollerProps } from './VideoScrollerTypes';
-import VideoList from './VideoList';
-import VideoSkeleton from './VideoSkeleton';
-import { useVideoManager } from '../../hooks/useVideoManager';
+import React, { useRef, useState, useEffect } from "react";
+import "./VideoScroller.css";
+import { VideoScrollerProps } from "./VideoScrollerTypes";
+import VideoList from "./VideoList";
+import VideoSkeleton from "./VideoSkeleton";
+import { useVideoManager } from "../../hooks/useVideoManager";
 
 /**
  * VideoScroller component that displays a scrollable list of videos
@@ -11,7 +11,7 @@ import { useVideoManager } from '../../hooks/useVideoManager';
 const VideoScroller: React.FC<VideoScrollerProps> = ({
   onSelect,
   initialSelectedIndex = 1, // Default to second video
-  containerHeight = 600, // Default container height
+  containerHeight = 430, // Default container height
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [loading, setLoading] = useState(true);
@@ -46,7 +46,7 @@ const VideoScroller: React.FC<VideoScrollerProps> = ({
   if (videos.length === 0) {
     return (
       <div
-        className='video-scroller-container'
+        className="video-scroller-container"
         style={{ height: `${containerHeight}px` }}
       >
         <VideoSkeleton count={3} />
@@ -57,7 +57,7 @@ const VideoScroller: React.FC<VideoScrollerProps> = ({
   return (
     <div
       ref={containerRef}
-      className='video-scroller-container'
+      className="video-scroller-container"
       style={{
         height: `${containerHeight}px`,
       }}
