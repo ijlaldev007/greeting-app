@@ -1,8 +1,8 @@
 import './App.css';
 import backgroundImage from './assets/images/background-pic.jpg';
+import VideoScroller from './components/videoscroller/VideoScroller';
 // Commented out unused imports
 // import Input from './components/input/TextInput';
-import VideoScroller from './components/videoscroller/VideoScroller';
 // import SenderDetail from './pages/senderdetail/SenderDetail';
 
 function App() {
