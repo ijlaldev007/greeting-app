@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+// React Router imports
 import {
   BrowserRouter as Router,
   Routes,
@@ -9,7 +9,6 @@ import './App.css';
 import backgroundImage from './assets/images/background-pic.jpg';
 
 // Page Components
-import Home from './pages/home/Home';
 import NotFound from './pages/notfound/NotFound';
 import SplashScreen from './pages/splash/SplashScreen';
 import OnBoardingVideoScreen from './pages/onboarding/OnBoardingVideoScreen';
@@ -24,34 +23,20 @@ import GreetingDone from './pages/greetingdone/GreetingDone';
 import VideoScroller from './components/videoscroller/VideoScroller';
 import TextGenerationDemo from './components/textgeneration/TextGenerationDemo';
 
-// Navigation
-import Navigation from './components/navigation/Navigation';
+// No navigation component
 
 function App() {
-  const [showNav, setShowNav] = useState(true);
-
   return (
     <Router>
       <div
         className='relative min-h-screen w-full bg-cover bg-center bg-no-repeat flex flex-col overflow-hidden'
         style={{ backgroundImage: `url(${backgroundImage})` }}
       >
-        {/* Navigation */}
-        {showNav && <Navigation />}
-
-        {/* Toggle Navigation Button */}
-        <button
-          className='fixed top-2 right-2 z-50 bg-white bg-opacity-80 p-1 rounded-full shadow-md'
-          onClick={() => setShowNav(!showNav)}
-        >
-          {showNav ? '✕' : '☰'}
-        </button>
-
         {/* Main Content */}
-        <div className='flex-1 flex items-center justify-center p-4 pt-16'>
+        <div className='flex-1 flex items-center justify-center p-4'>
           <Routes>
             {/* Main Application Flow */}
-            <Route path='/' element={<Home />} />
+            <Route path='/' element={<Navigate to='/splash' />} />
             <Route path='/splash' element={<SplashScreen />} />
             <Route path='/onboarding' element={<OnBoardingVideoScreen />} />
             <Route path='/signup' element={<SignUp />} />
