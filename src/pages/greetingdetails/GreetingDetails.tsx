@@ -1,7 +1,12 @@
-import Greeting from "../../components/greetingselection/GreetingSelection"; // Adjust the import path
-import Button from "../../components/button/Button"; // if using shadcn/ui or your own button
+import GreetingSelection from "../../components/greetingselection/GreetingSelection";
+import Button from "../../components/button/Button";
+import { greetings } from "../../constants/greetings"; // or import { relations } from "../../constants/relations"
 
 export default function GreetingDetailsPage() {
+  const handleSelectGreeting = (id: number) => {
+    console.log("Selected Greeting ID:", id);
+  };
+
   return (
     <div className="w-full sm:w-full lg:w-1/2 min-h-screen flex flex-col items-center justify-around px-4">
       {/* Heading */}
@@ -9,9 +14,13 @@ export default function GreetingDetailsPage() {
         What do you want to congratulate with?
       </h1>
 
-      {/* Greeting Component */}
-      <div className="w-full h-[440px] md:h-[600px] lg:h-[520px] ">
-        <Greeting />
+      {/* Greeting Selection Component */}
+      <div className="w-full h-[440px] md:h-[600px] lg:h-[520px]">
+        <GreetingSelection
+          options={greetings} // You can replace this with 'relations'
+          defaultSelectedId={4} // Optional: Default to "Merry Christmas"
+          onSelect={handleSelectGreeting}
+        />
       </div>
 
       {/* Next Button */}
@@ -21,7 +30,7 @@ export default function GreetingDetailsPage() {
           onClick={() => console.log("Next clicked")}
           bgColor="#C90082"
           textColor="#FFFFFF"
-          className="w-full py-3 rounded-full text-base font-semibold"
+          className="w-full py-3 rounded-full text-base font-semibold mb-[25px]"
         />
       </div>
     </div>
