@@ -4,10 +4,10 @@ import mashaImage from '../../assets/images/signup img.png';
 
 const GreetingDone = () => {
   return (
-    <div className='min-h-screen w-full flex justify-between flex-col items-center px-4 sm:px-6 md:px-10 py-10'>
+    <div className='min-h-screen w-full flex justify-between flex-col items-center px-4 sm:px-6 md:px-10 pt-6 pb-0'>
       <div>
         {/* Mobile view Heading */}
-        <h1 className='mb-8 text-center text-gray-800 text-[25px] md:text-[32px] font-semibold font-montserrat leading-[100%] block md:hidden'>
+        <h1 className='mb-4 text-center text-gray-800 text-[25px] md:text-[32px] font-semibold font-montserrat leading-[100%] block md:hidden'>
           Yey!
           <br />
           Masha is creating
@@ -16,7 +16,7 @@ const GreetingDone = () => {
         </h1>
 
         {/* Tablet and Web view Heading */}
-        <h1 className='mb-8 text-center text-gray-800 text-[25px] md:text-[32px] font-semibold font-montserrat leading-[100%] hidden md:block'>
+        <h1 className='mb-4 text-center text-gray-800 text-[25px] md:text-[32px] font-semibold font-montserrat leading-[100%] hidden md:block'>
           Yey! Masha is creating your greeting!
         </h1>
 
@@ -38,7 +38,7 @@ const GreetingDone = () => {
       </div>
 
       {/* Masha Image */}
-      <div className='mt-10 sm:mt-12 md:mt-14'>
+      <div className='mt-6'>
         <img
           src={mashaImage}
           alt='Masha'

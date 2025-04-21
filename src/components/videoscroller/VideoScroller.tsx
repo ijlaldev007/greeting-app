@@ -11,7 +11,7 @@ import { useVideoManager } from '../../hooks/useVideoManager';
 const VideoScroller: React.FC<VideoScrollerProps> = ({
   onSelect,
   initialSelectedIndex = 1, // Default to second video
-  containerHeight = 60, // Default container height in vh units
+  containerHeight = 70, // Default container height in vh units
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [loading, setLoading] = useState(true);
@@ -31,6 +31,12 @@ const VideoScroller: React.FC<VideoScrollerProps> = ({
     if (videos.length > 0 && Object.keys(thumbnails).length >= videos.length) {
       // All videos and thumbnails are loaded
       setLoading(false);
+
+      // Small delay to ensure the DOM has been updated
+      setTimeout(() => {
+        // Trigger a resize event to help center the selected video
+        window.dispatchEvent(new Event('resize'));
+      }, 100);
     }
   }, [videos, thumbnails]);
 

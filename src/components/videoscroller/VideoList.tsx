@@ -85,8 +85,8 @@ const VideoList: React.FC<VideoListProps> = ({
     };
   }, [videos.length, handleWheel]); // Re-attach when videos length changes or handler changes
 
-  // Scroll to center the selected item when selectedIndex changes
-  useEffect(() => {
+  // Function to center the selected item
+  const centerSelectedItem = React.useCallback(() => {
     if (gridRef.current && selectedIndex >= 0) {
       // Get the container height
       const containerHeight = gridRef.current.clientHeight;
@@ -102,7 +102,34 @@ const VideoList: React.FC<VideoListProps> = ({
         behavior: 'smooth',
       });
     }
-  }, [selectedIndex, itemHeight]);
+  }, [selectedIndex, itemHeight, gridRef]);
+
+  // Center the selected item when component mounts or selectedIndex changes
+  useEffect(() => {
+    // Use requestAnimationFrame to ensure the DOM has been painted
+    const timeoutId = setTimeout(() => {
+      centerSelectedItem();
+    }, 100); // Small delay to ensure the component is fully rendered
+
+    return () => clearTimeout(timeoutId);
+  }, [centerSelectedItem]);
+
+  // Also center the selected item when the grid is fully loaded
+  useEffect(() => {
+    if (gridRef.current) {
+      const observer = new ResizeObserver(() => {
+        centerSelectedItem();
+      });
+
+      observer.observe(gridRef.current);
+
+      return () => {
+        if (gridRef.current) {
+          observer.unobserve(gridRef.current);
+        }
+      };
+    }
+  }, [centerSelectedItem]);
 
   return (
     <div ref={gridRef} className='video-grid'>

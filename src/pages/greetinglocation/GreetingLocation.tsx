@@ -12,7 +12,7 @@ export default function GreetingLocationPage() {
   };
 
   return (
-    <div className='w-full sm:w-full lg:w-1/2 min-h-screen flex flex-col items-center justify-between px-4 py-10'>
+    <div className='w-full sm:w-full lg:w-1/2 min-h-screen flex flex-col items-center justify-between px-4 pt-6 pb-0'>
       {/* Heading */}
       <h1 className='text-2xl sm:text-3xl font-bold text-center leading-tight mb-4'>
         Choose the <br className='sm:hidden' />
