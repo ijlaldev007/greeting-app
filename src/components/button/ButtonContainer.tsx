@@ -8,9 +8,14 @@ interface ButtonContainerProps {
 /**
  * Standard container for buttons to ensure consistent positioning across pages
  */
-const ButtonContainer: React.FC<ButtonContainerProps> = ({ children, className = '' }) => {
+const ButtonContainer: React.FC<ButtonContainerProps> = ({
+  children,
+  className = '',
+}) => {
   return (
-    <div className={`mt-8 flex flex-col items-center space-y-4 w-full max-w-sm mx-auto md:max-w-md ${className}`}>
+    <div
+      className={`mt-8 pb-[35px] flex flex-col items-center space-y-4 w-full max-w-sm mx-auto md:max-w-md ${className}`}
+    >
       {children}
     </div>
   );
