@@ -3,8 +3,9 @@ import './App.css';
 import backgroundImage from './assets/images/background-pic.jpg';
 // Commented out unused imports
 // import Input from './components/input/TextInput';
-import VideoScroller from './components/videoscroller/VideoScroller';
+//import VideoScroller from './components/videoscroller/VideoScroller';
 // import SenderDetail from './pages/senderdetail/SenderDetail';
+import GreetingSelection from './components/greetingselection/GreetingSelection';
 import TextGenerationDemo from './components/textgeneration/TextGenerationDemo';
 
 function App() {
@@ -15,11 +16,7 @@ function App() {
       style={{ backgroundImage: `url(${backgroundImage})` }}
     >
       {/* Toggle between components for demo purposes */}
-      {showVideoScroller ? (
-        <VideoScroller containerHeight={600} />
-      ) : (
-        <TextGenerationDemo />
-      )}
+      {showVideoScroller ? <GreetingSelection /> : <TextGenerationDemo />}
 
       {/* Toggle button */}
       <button

@@ -1,7 +1,8 @@
 /* Global styles */
 
 /* Hide default scrollbar on the main container */
-body, html {
+body,
+html {
   overflow: hidden;
   margin: 0;
   padding: 0;
