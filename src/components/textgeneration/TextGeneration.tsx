@@ -11,25 +11,15 @@ export interface TextGenerationProps {
   initialText: string;
   placeholders: Placeholder[];
   onGenerate?: () => void;
-  greetingType?: string;
+  greetingType?: string; // Added back for template selection
 }
 
 const TextGeneration: React.FC<TextGenerationProps> = ({
   initialText,
   placeholders,
   onGenerate,
-  greetingType,
+  greetingType, // Added back for template selection but not used for display
 }) => {
-  // Format greeting type for display
-  const formatGreetingType = (type?: string) => {
-    if (!type) return '';
-    return type
-      .replace('_', ' ')
-      .split(' ')
-      .map((word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
-      .join(' ');
-  };
-
   // Replace placeholders in text with highlighted spans
   const renderTextWithPlaceholders = () => {
     let result = initialText;
@@ -62,12 +52,6 @@ const TextGeneration: React.FC<TextGenerationProps> = ({
 
   return (
     <div className='text-generation-container'>
-      {greetingType && (
-        <div className='greeting-type-header'>
-          <h3>{formatGreetingType(greetingType)}</h3>
-        </div>
-      )}
-
       <div className='text-content'>
         <p dangerouslySetInnerHTML={{ __html: renderTextWithPlaceholders() }} />
       </div>
