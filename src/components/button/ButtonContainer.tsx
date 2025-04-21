@@ -14,7 +14,7 @@ const ButtonContainer: React.FC<ButtonContainerProps> = ({
 }) => {
   return (
     <div
-      className={`mt-8 pb-[35px] flex flex-col items-center space-y-4 w-full max-w-sm mx-auto md:max-w-md ${className}`}
+      className={`mt-auto pb-[35px] flex flex-col items-center space-y-4 w-full max-w-sm mx-auto md:max-w-md ${className}`}
     >
       {children}
     </div>

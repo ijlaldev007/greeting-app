@@ -14,7 +14,7 @@ const SignUp = () => {
   };
 
   return (
-    <div className='min-h-screen flex flex-col items-center px-4 sm:px-6 md:px-10 py-10'>
+    <div className='min-h-screen flex flex-col items-center justify-between px-4 sm:px-6 md:px-10 py-10'>
       {/* Top Heading */}
       <h1 className='mb-8 text-center text-gray-800 text-[25px] font-semibold font-montserrat leading-[100%]'>
         Sign Up

@@ -17,7 +17,7 @@ export default function GreetingDetailsPage() {
   };
 
   return (
-    <div className='w-full sm:w-full lg:w-1/2 min-h-screen flex flex-col items-center justify-around px-4'>
+    <div className='w-full sm:w-full lg:w-1/2 min-h-screen flex flex-col items-center justify-between px-4 py-10'>
       {/* Heading */}
       <h1 className='text-3xl font-bold text-center mb-6'>
         What do you want to congratulate with?

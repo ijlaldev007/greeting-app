@@ -4,7 +4,7 @@ import mashaImage from '../../assets/images/signup img.png';
 
 const GreetingDone = () => {
   return (
-    <div className='min-h-screen w-full flex justify-evenly flex-col items-center px-4 sm:px-6 md:px-10 py-10'>
+    <div className='min-h-screen w-full flex justify-between flex-col items-center px-4 sm:px-6 md:px-10 py-10'>
       <div>
         {/* Mobile view Heading */}
         <h1 className='mb-8 text-center text-gray-800 text-[25px] md:text-[32px] font-semibold font-montserrat leading-[100%] block md:hidden'>

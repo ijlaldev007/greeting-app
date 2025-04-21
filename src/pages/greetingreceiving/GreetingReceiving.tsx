@@ -18,7 +18,7 @@ export default function GreetingReceivingPage() {
   };
 
   return (
-    <div className='w-full sm:w-full lg:w-1/2 min-h-screen flex flex-col items-center justify-evenly '>
+    <div className='w-full sm:w-full lg:w-1/2 min-h-screen flex flex-col items-center justify-between px-4 py-10'>
       <div className='px-2 sm:px-4 py-4 w-full flex flex-col items-center gap-2'>
         {/* Responsive Heading - stays on one line for larger screens */}
         <h1 className='text-2xl sm:text-3xl font-bold text-center leading-tight whitespace-normal sm:whitespace-nowrap'>

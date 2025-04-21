@@ -12,7 +12,7 @@ const OnBoardingVideoScreen = () => {
   };
 
   return (
-    <div className='flex flex-col px-4 sm:px-6 md:px-12 lg:px-20 overflow-hidden'>
+    <div className='flex flex-col min-h-screen px-4 sm:px-6 md:px-12 lg:px-20 overflow-hidden'>
       {/* Centered Video */}
       <div className='flex justify-center'>
         <Video title='How Greeting App Works' />
