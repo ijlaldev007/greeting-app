@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import './TextGeneration.css';
 
 export interface Placeholder {
@@ -11,7 +11,6 @@ export interface TextGenerationProps {
   initialText: string;
   placeholders: Placeholder[];
   onGenerate?: () => void;
-  onShareToggle?: (isShared: boolean) => void;
   greetingType?: string;
 }
 
@@ -19,11 +18,8 @@ const TextGeneration: React.FC<TextGenerationProps> = ({
   initialText,
   placeholders,
   onGenerate,
-  onShareToggle,
   greetingType,
 }) => {
-  const [isShared, setIsShared] = useState(false);
-
   // Format greeting type for display
   const formatGreetingType = (type?: string) => {
     if (!type) return '';
@@ -64,15 +60,6 @@ const TextGeneration: React.FC<TextGenerationProps> = ({
     }
   };
 
-  const handleShareToggle = () => {
-    const newSharedState = !isShared;
-    setIsShared(newSharedState);
-
-    if (onShareToggle) {
-      onShareToggle(newSharedState);
-    }
-  };
-
   return (
     <div className='text-generation-container'>
       {greetingType && (
@@ -100,19 +87,6 @@ const TextGeneration: React.FC<TextGenerationProps> = ({
           </svg>
           Generate different text
         </button>
-
-        <div className='share-toggle'>
-          <span>Agree share</span>
-          <div className='toggle-container'>
-            <input
-              type='checkbox'
-              id='share-toggle'
-              checked={isShared}
-              onChange={handleShareToggle}
-            />
-            <label htmlFor='share-toggle' className='toggle-switch'></label>
-          </div>
-        </div>
       </div>
     </div>
   );
