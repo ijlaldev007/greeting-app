@@ -1,6 +1,6 @@
 import "./App.css";
 import backgroundImage from "./assets/images/background-pic.jpg";
-import SenderDetail from "./pages/senderdetail/SenderDetail";
+import GreetingDetailsPage from "./pages/greetingdetails/GreetingDetails";
 
 function App() {
   return (
@@ -8,7 +8,7 @@ function App() {
       className="relative min-h-screen w-full bg-cover bg-center bg-no-repeat flex items-center justify-center overflow-hidden "
       style={{ backgroundImage: `url(${backgroundImage})` }}
     >
-      <SenderDetail />
+      <GreetingDetailsPage />
     </div>
   );
 }
