@@ -33,7 +33,7 @@ function App() {
         style={{ backgroundImage: `url(${backgroundImage})` }}
       >
         {/* Main Content */}
-        <div className='flex-1 flex flex-col items-center justify-start p-4'>
+        <div className='flex-1 flex flex-col items-center justify-center p-4'>
           <Routes>
             {/* Main Application Flow */}
             <Route path='/' element={<Navigate to='/splash' />} />
@@ -49,7 +49,7 @@ function App() {
             {/* Demo Routes */}
             <Route
               path='/demo/video-scroller'
-              element={<VideoScroller containerHeight={600} />}
+              element={<VideoScroller containerHeight={80} />}
             />
             <Route
               path='/demo/text-generation'

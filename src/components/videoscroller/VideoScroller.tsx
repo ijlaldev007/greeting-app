@@ -11,7 +11,7 @@ import { useVideoManager } from '../../hooks/useVideoManager';
 const VideoScroller: React.FC<VideoScrollerProps> = ({
   onSelect,
   initialSelectedIndex = 1, // Default to second video
-  containerHeight = 430, // Default container height
+  containerHeight = 60, // Default container height in vh units
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [loading, setLoading] = useState(true);
@@ -47,7 +47,7 @@ const VideoScroller: React.FC<VideoScrollerProps> = ({
     return (
       <div
         className='video-scroller-container'
-        style={{ height: `${containerHeight}px` }}
+        style={{ height: `${containerHeight}vh` }}
       >
         <VideoSkeleton count={3} />
       </div>
@@ -58,9 +58,7 @@ const VideoScroller: React.FC<VideoScrollerProps> = ({
     <div
       ref={containerRef}
       className='video-scroller-container'
-      style={{
-        height: `${containerHeight}px`,
-      }}
+      style={{ height: `${containerHeight}vh` }}
     >
       {loading ? (
         <VideoSkeleton count={videos.length || 3} />

@@ -20,7 +20,7 @@ export interface VideoScrollerProps {
   highlightColor?: string;
 
   /**
-   * Height of the container in pixels
+   * Height of the container in viewport height (vh) units
    */
   containerHeight?: number;
 }
