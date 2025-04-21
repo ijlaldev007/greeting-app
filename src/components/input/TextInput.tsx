@@ -5,6 +5,7 @@ interface TextInputProps {
   placeholder: string;
   type?: string;
   value?: string;
+  className?: string; // <-- Add this line
   onChange?: (value: string) => void;
 }
 
@@ -13,6 +14,7 @@ const CustomInput: React.FC<TextInputProps> = ({
   placeholder,
   type = "text",
   value,
+
   onChange,
 }) => {
   return (
