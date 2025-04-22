@@ -19,7 +19,7 @@ const TextPreview = () => {
 
   return (
     <div className='text-preview-page'>
-      <h1 className='text-[25px] font-semibold'>
+      <h1 className='typography-heading'>
         This is a text preview of your video greeting
       </h1>
 

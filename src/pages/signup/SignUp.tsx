@@ -70,9 +70,7 @@ const SignUp = () => {
   return (
     <div className='min-h-screen flex flex-col items-center justify-between px-4 sm:px-6 md:px-10 pt-6 pb-0'>
       {/* Top Heading */}
-      <h1 className='mb-4 text-center text-gray-800 text-[25px] font-semibold font-montserrat leading-[100%]'>
-        Sign Up
-      </h1>
+      <h1 className='typography-heading mb-4'>Sign Up</h1>
 
       {/* Inputs */}
       <div className='w-full max-w-sm md:max-w-md lg:max-w-lg space-y-3'>
@@ -96,7 +94,7 @@ const SignUp = () => {
       </div>
 
       {/* Below Image Heading */}
-      <h2 className='mt-4 text-center text-gray-800 text-[20px] sm:text-[22px] md:text-[25px] font-semibold font-montserrat leading-[100%] px-2 sm:px-6'>
+      <h2 className='typography-heading mt-4 px-2 sm:px-6'>
         The video greeting will be sent to this contact
       </h2>
 

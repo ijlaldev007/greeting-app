@@ -42,7 +42,7 @@ export default function GreetingDetailsPage() {
   return (
     <div className='w-full sm:w-full md:w-3/4 lg:w-1/2 min-h-screen flex flex-col items-center justify-between px-4 pt-6 pb-0'>
       {/* Heading */}
-      <h1 className='text-[25px] font-semibold text-center mb-4 md:mb-6'>
+      <h1 className='typography-heading mb-4 md:mb-6'>
         What do you want to congratulate with?
       </h1>
 

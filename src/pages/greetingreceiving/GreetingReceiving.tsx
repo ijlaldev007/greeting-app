@@ -98,19 +98,17 @@ export default function GreetingReceivingPage() {
       {/* Step 1: Recipient Name Input */}
       <div className='w-full flex flex-col items-center gap-2'>
         {/* Responsive Heading - stays on one line for larger screens */}
-        <h1 className='text-[25px] font-semibold text-center leading-tight whitespace-normal sm:whitespace-nowrap'>
+        <h1 className='typography-heading whitespace-normal sm:whitespace-nowrap'>
           Who is receiving the video greeting?
         </h1>
 
         {/* Light grey instruction */}
-        <p className='text-gray-400 text-sm text-center -mt-1'>
-          Type recipient's name
-        </p>
+        <p className='typography-subheading -mt-1'>Type recipient's name</p>
 
         {/* Text Input for recipient's name */}
         <TextInput
           placeholder="Recipient's name here..."
-          className='w-full max-w-md text-gray-600 placeholder-gray-400'
+          className='w-full max-w-md typography-placeholder'
           value={recipientName}
           onChange={handleNameChange}
           maxLength={50}
@@ -120,8 +118,8 @@ export default function GreetingReceivingPage() {
       {/* Step 2: Relationship Selection (only shown in step 2) */}
       {step === 2 && (
         <>
-          {/* Subheading with varied font size */}
-          <h2 className='text-base sm:text-lg md:text-xl font-semibold w-full max-w-md mt-8'>
+          {/* Subheading */}
+          <h2 className='typography-label w-full max-w-md mt-8'>
             The recipient is your:
           </h2>
 
