@@ -1,17 +1,13 @@
-import { useState, useCallback } from 'react';
+import { useCallback } from 'react';
 import { showErrorToast } from '../utils/toastUtils';
 
 /**
  * Simple hook for handling errors in components with toast notifications
  */
 export const useErrorHandler = () => {
-  const [error, setError] = useState<string | null>(null);
-
   // Set an error message and show toast
-  const setErrorMessage = useCallback((message: string) => {
-    setError(message);
+  const setError = useCallback((message: string) => {
     console.error('Error:', message);
-
     // Show toast notification
     showErrorToast(message);
   }, []);
@@ -27,22 +23,13 @@ export const useErrorHandler = () => {
     }
 
     console.error('Error caught:', err);
-    setError(message);
-
     // Show toast notification
     showErrorToast(message);
   }, []);
 
-  // Clear the error
-  const clearError = useCallback(() => {
-    setError(null);
-  }, []);
-
   return {
-    error,
-    setError: setErrorMessage,
+    setError,
     handleError,
-    clearError,
   };
 };
 
