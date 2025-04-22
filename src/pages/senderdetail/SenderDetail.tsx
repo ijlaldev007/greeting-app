@@ -6,6 +6,7 @@ import mashaImage from '../../assets/images/side-masha.png';
 import { senderDetailsSchema } from '../../utils/validationSchemas';
 import { showSingleErrorToast } from '../../utils/toastUtils';
 import { useGreeting } from '../../context/GreetingContext'; // Import the context
+import ButtonContainer from '../../components/button/ButtonContainer';
 
 const SenderDetail = () => {
   const navigate = useNavigate();
@@ -88,16 +89,15 @@ const SenderDetail = () => {
       </div>
 
       {/* Button */}
-      <div className='mt-8 w-full px-4 sm:px-0 max-w-md mx-auto z-10'>
+      <ButtonContainer>
         <Button
           text='Next'
           onClick={handleNext}
           disabled={!senderName.trim()}
           bgColor='#C90082'
           textColor='#FFFFFF'
-          className='w-full py-3 rounded-full text-base font-semibold'
         />
-      </div>
+      </ButtonContainer>
     </div>
   );
 };
