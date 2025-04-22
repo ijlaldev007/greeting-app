@@ -21,7 +21,7 @@ const SignUp = () => {
       </h1>
 
       {/* Inputs */}
-      <div className='w-full max-w-sm space-y-3'>
+      <div className='w-full max-w-sm md:max-w-md lg:max-w-lg space-y-3'>
         <NumberInput />
         <EmailInput type='email' placeholder='Email' label='Email' />
       </div>
@@ -31,7 +31,7 @@ const SignUp = () => {
         <img
           src={mashaImage}
           alt='Masha'
-          className='w-[160px] sm:w-[180px] h-[160px] sm:h-[180px] object-contain'
+          className='w-[160px] sm:w-[180px] h-[160px] sm:h-[180px] object-cover'
         />
       </div>
 
