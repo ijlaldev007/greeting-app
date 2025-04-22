@@ -16,7 +16,7 @@
 /* iPad and up */
 @media (min-width: 768px) {
   .greeting-selection {
-    height: 500px;
+    
   }
 
   /* Increase touch targets for tablets */
