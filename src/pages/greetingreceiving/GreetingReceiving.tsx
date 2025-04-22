@@ -5,6 +5,8 @@ import Button from '../../components/button/Button';
 import ButtonContainer from '../../components/button/ButtonContainer';
 import TextInput from '../../components/input/TextInput';
 import { relations } from '../../constants//Relations';
+import { recipientDetailsSchema } from '../../utils/validationSchemas';
+import { showSingleErrorToast } from '../../utils/toastUtils';
 
 export default function GreetingReceivingPage() {
   const navigate = useNavigate();
@@ -22,14 +24,43 @@ export default function GreetingReceivingPage() {
     setRecipientName(value);
   };
 
-  // Handle next button in step 1
-  const handleNextStep = () => {
-    if (step === 1) {
-      // Move to relationship selection step
-      setStep(2);
-    } else {
-      // Navigate to text preview page
-      navigate('/text-preview');
+  // Handle next button
+  const handleNextStep = async () => {
+    try {
+      if (step === 1) {
+        // Validate recipient name before proceeding to step 2
+        await recipientDetailsSchema.validate(
+          { recipientName, relationship: 'temp' }, // Add temp value for relationship
+          { abortEarly: false },
+        );
+
+        // If validation passes, move to relationship selection step
+        setStep(2);
+      } else {
+        // Validate both recipient name and relationship before navigating
+        await recipientDetailsSchema.validate(
+          {
+            recipientName,
+            relationship: selectedRelationId.toString(),
+          },
+          { abortEarly: false },
+        );
+
+        // If validation passes, navigate to text preview page
+        navigate('/text-preview');
+      }
+    } catch (error) {
+      // Handle validation errors with type assertion for Yup error
+      const yupError = error as {
+        inner?: { path: string; message: string }[];
+      };
+      if (yupError.inner && yupError.inner.length > 0) {
+        // Show a single toast for the first error
+        showSingleErrorToast(yupError.inner[0].message);
+      } else {
+        // Handle unexpected errors
+        showSingleErrorToast('An error occurred. Please try again.');
+      }
     }
   };
 
@@ -53,6 +84,7 @@ export default function GreetingReceivingPage() {
           className='w-full max-w-md text-gray-600 placeholder-gray-400'
           value={recipientName}
           onChange={handleNameChange}
+          maxLength={50}
         />
       </div>
 

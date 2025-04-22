@@ -28,6 +28,7 @@ import TextGenerationDemo from './components/textgeneration/TextGenerationDemo';
 import ErrorBoundary from './components/error/ErrorBoundary';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import './styles/toast.css'; // Custom toast styling
 
 function App() {
   return (
@@ -43,6 +44,7 @@ function App() {
         draggable
         pauseOnHover
         theme='light'
+        limit={1} // Limit to only one toast at a time
       />
       <Router>
         <div

@@ -1,43 +1,55 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { FaChevronDown } from 'react-icons/fa';
 import {
   getCountryCallingCode,
   isSupportedCountry,
-  parsePhoneNumberFromString,
+  CountryCode,
 } from 'libphonenumber-js';
 import countryData from 'world-countries';
 
-const PhoneNumberInput: React.FC = () => {
-  const [selectedCountry, setSelectedCountry] = useState('PK');
+interface PhoneNumberInputProps {
+  value?: string;
+  onChange?: (value: string) => void;
+}
+
+const PhoneNumberInput: React.FC<PhoneNumberInputProps> = ({
+  value: externalValue,
+  onChange: externalOnChange,
+}) => {
+  const [selectedCountry, setSelectedCountry] = useState<CountryCode>('PK');
   const [phone, setPhone] = useState('');
   const [showDropdown, setShowDropdown] = useState(false);
-  const [error, setError] = useState<string | null>(null);
+  // No error state needed as we're using toast notifications
 
   const countries = countryData
-    .filter((c) => isSupportedCountry(c.cca2) || c.cca2 === 'PK')
+    .filter((c) => isSupportedCountry(c.cca2 as CountryCode) || c.cca2 === 'PK')
     .sort((a, b) => a.name.common.localeCompare(b.name.common));
 
   const countryCallingCode = getCountryCallingCode(selectedCountry);
   const flagSrc = `https://flagcdn.com/w40/${selectedCountry.toLowerCase()}.png`;
 
-  const validatePhoneNumber = (phone: string): boolean => {
-    try {
-      const phoneNumber = parsePhoneNumberFromString(
-        `+${countryCallingCode}${phone}`,
-        selectedCountry,
-      );
-      return phoneNumber?.isValid() ?? false;
-    } catch {
-      return false;
+  // Phone validation will be handled by Yup in the parent component
+
+  // Update internal state when external value changes
+  useEffect(() => {
+    if (externalValue !== undefined) {
+      setPhone(externalValue);
     }
-  };
+  }, [externalValue]);
+
+  // No need to handle external errors as we're using toast notifications
 
   const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const input = e.target.value.replace(/[^0-9]/g, '');
     setPhone(input);
 
-    const isValid = validatePhoneNumber(input);
-    setError(isValid || input === '' ? null : 'Invalid phone number format');
+    // Validate phone number but don't set error state
+    // We'll handle validation errors with Yup and toast notifications
+
+    // Call external onChange if provided
+    if (externalOnChange) {
+      externalOnChange(input);
+    }
   };
 
   return (
@@ -63,13 +75,13 @@ const PhoneNumberInput: React.FC = () => {
           type='tel'
           value={phone}
           onChange={handlePhoneChange}
-          placeholder='Enter phone number'
+          placeholder='Enter phone number (10-11 digits)'
+          maxLength={11}
           className='flex-1 h-full outline-none text-base text-gray-800 placeholder-gray-400 bg-transparent border-none'
         />
       </div>
 
-      {/* Error message */}
-      {error && <div className='text-red-500 text-xs'>{error}</div>}
+      {/* No inline error display as per requirement */}
 
       {/* Country Dropdown */}
       {showDropdown && (
@@ -78,7 +90,7 @@ const PhoneNumberInput: React.FC = () => {
             <div
               key={country.cca2}
               onClick={() => {
-                setSelectedCountry(country.cca2);
+                setSelectedCountry(country.cca2 as CountryCode);
                 setShowDropdown(false);
               }}
               className='flex items-center gap-2 p-2 hover:bg-gray-100 cursor-pointer'
@@ -89,7 +101,8 @@ const PhoneNumberInput: React.FC = () => {
                 className='w-5 h-5'
               />
               <span className='text-sm'>
-                {country.name.common} (+{getCountryCallingCode(country.cca2)})
+                {country.name.common} (+
+                {getCountryCallingCode(country.cca2 as CountryCode)})
               </span>
             </div>
           ))}

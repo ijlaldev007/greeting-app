@@ -1,0 +1,48 @@
+/* Custom toast styling */
+.Toastify__toast {
+  border-radius: 8px;
+  padding: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  background-color: #FFFFFF;
+  color: #333333;
+}
+
+/* Error toast styling */
+.Toastify__toast--error {
+  border-left: 4px solid #C90082;
+}
+
+/* Success toast styling */
+.Toastify__toast--success {
+  border-left: 4px solid #FFA600;
+}
+
+/* Progress bar styling */
+.Toastify__progress-bar--error {
+  background-color: #C90082;
+}
+
+.Toastify__progress-bar--success {
+  background-color: #FFA600;
+}
+
+/* Close button styling */
+.Toastify__close-button {
+  color: #333333;
+  opacity: 0.7;
+}
+
+.Toastify__close-button:hover {
+  opacity: 1;
+}
+
+/* Custom toast icon - Masha image */
+.Toastify__toast-icon {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+  background-image: url('../assets/images/side-masha.png');
+  background-size: cover;
+  background-position: center;
+  border-radius: 50%;
+}
