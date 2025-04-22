@@ -1,8 +1,15 @@
+import { useNavigate } from 'react-router-dom';
 import Button from '../../components/button/Button';
 import ButtonContainer from '../../components/button/ButtonContainer';
 import mashaImage from '../../assets/images/signup img.png';
 
 const GreetingDone = () => {
+  const navigate = useNavigate();
+
+  const handleDone = () => {
+    navigate('/greeting-summary');
+  };
+
   return (
     <div className='min-h-screen w-full flex justify-between flex-col items-center px-4 sm:px-6 md:px-10 pt-6 pb-0'>
       <div>
@@ -50,7 +57,7 @@ const GreetingDone = () => {
       <ButtonContainer>
         <Button
           text='Done'
-          onClick={() => console.log('Continue clicked')}
+          onClick={handleDone}
           bgColor='#C90082'
           textColor='#FFFFFF'
         />

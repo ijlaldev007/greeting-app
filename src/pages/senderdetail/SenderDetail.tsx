@@ -1,16 +1,20 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import TextInput from '../../components/input/TextInput';
 import Button from '../../components/button/Button';
 import mashaImage from '../../assets/images/side-masha.png';
 import { senderDetailsSchema } from '../../utils/validationSchemas';
 import { showSingleErrorToast } from '../../utils/toastUtils';
+import { useGreeting } from '../../context/GreetingContext'; // Import the context
+import ButtonContainer from '../../components/button/ButtonContainer';
 
-const GreeterNameScreen = () => {
+const SenderDetail = () => {
   const navigate = useNavigate();
-  const [senderName, setSenderName] = useState('');
+  const { state, setSenderName } = useGreeting(); // Get the state and setter from context
+  const [senderName, setSenderNameState] = useState(state.senderName || ''); // Set initial senderName from context
+
   const handleNameChange = (value: string) => {
-    setSenderName(value);
+    setSenderNameState(value);
   };
 
   const handleNext = async () => {
@@ -18,8 +22,10 @@ const GreeterNameScreen = () => {
       // Validate form data against schema
       await senderDetailsSchema.validate({ senderName }, { abortEarly: false });
 
+      setSenderName(senderName);
+
       // If validation passes, navigate to next page
-      navigate('/greeting-location');
+      navigate('/greeting-receiving');
     } catch (error) {
       // Handle validation errors with type assertion for Yup error
       const yupError = error as { inner?: { path: string; message: string }[] };
@@ -32,6 +38,13 @@ const GreeterNameScreen = () => {
       }
     }
   };
+
+  // Effect to sync context with the senderName state on component mount
+  useEffect(() => {
+    if (state.senderName) {
+      setSenderNameState(state.senderName);
+    }
+  }, [state.senderName]);
   return (
     <div className='min-h-screen w-full flex flex-col justify-between px-6 py-8 relative overflow-hidden'>
       <div>
@@ -76,18 +89,17 @@ const GreeterNameScreen = () => {
       </div>
 
       {/* Button */}
-      <div className='mt-8 w-full px-4 sm:px-0 max-w-md mx-auto z-10'>
+      <ButtonContainer>
         <Button
           text='Next'
           onClick={handleNext}
           disabled={!senderName.trim()}
           bgColor='#C90082'
           textColor='#FFFFFF'
-          className='w-full py-3 rounded-full text-base font-semibold'
         />
-      </div>
+      </ButtonContainer>
     </div>
   );
 };
 
-export default GreeterNameScreen;
+export default SenderDetail;
