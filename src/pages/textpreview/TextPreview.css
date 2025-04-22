@@ -6,6 +6,14 @@
   min-height: 100vh;
   padding: 0 20px;
   box-sizing: border-box;
+  width: 100%;
+  max-width: 100%;
+}
+
+@media (min-width: 768px) {
+  .text-preview-page {
+    padding: 0 40px;
+  }
 }
 
 .text-preview-title {
@@ -17,14 +25,44 @@
   max-width: 300px;
 }
 
+@media (min-width: 768px) {
+  .text-preview-title {
+    font-size: 32px;
+    margin-bottom: 30px;
+    max-width: 500px;
+  }
+}
+
 .text-preview-content {
   width: 100%;
   max-width: 400px;
   margin-bottom: 20px;
 }
 
+@media (min-width: 768px) {
+  .text-preview-content {
+    max-width: 500px;
+    margin-bottom: 30px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .text-preview-content {
+    max-width: 550px;
+  }
+}
+
 .text-preview-actions {
   margin-top: 10px;
+  width: 100%;
+  max-width: 400px;
+}
+
+@media (min-width: 768px) {
+  .text-preview-actions {
+    margin-top: 20px;
+    max-width: 500px;
+  }
 }
 
 /* Responsive adjustments */
