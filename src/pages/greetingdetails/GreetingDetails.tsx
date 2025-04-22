@@ -1,30 +1,30 @@
-import { useNavigate } from 'react-router-dom';
-import GreetingSelection from '../../components/greetingselection/GreetingSelection';
-import Button from '../../components/button/Button';
-import ButtonContainer from '../../components/button/ButtonContainer';
-import { greetings } from '../../constants/greetings';
+import { useNavigate } from "react-router-dom";
+import GreetingSelection from "../../components/greetingselection/GreetingSelection";
+import Button from "../../components/button/Button";
+import ButtonContainer from "../../components/button/ButtonContainer";
+import { greetings } from "../../constants/greetings";
 
 export default function GreetingDetailsPage() {
   const navigate = useNavigate();
 
   const handleSelectGreeting = (id: number) => {
-    console.log('Selected Greeting ID:', id);
+    console.log("Selected Greeting ID:", id);
   };
 
   // Navigate to greeting receiving page
   const handleNext = () => {
-    navigate('/greeting-receiving');
+    navigate("/greeting-receiving");
   };
 
   return (
-    <div className='w-full sm:w-full md:w-3/4 lg:w-1/2 min-h-screen flex flex-col items-center justify-between px-4 pt-6 pb-0'>
+    <div className="w-full sm:w-full md:w-3/4 lg:w-1/2 min-h-screen flex flex-col items-center justify-between px-4 pt-6 pb-0">
       {/* Heading */}
-      <h1 className='text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-4 md:mb-6'>
+      <h1 className="text-[25px] font-semibold text-center mb-4 md:mb-6">
         What do you want to congratulate with?
       </h1>
 
       {/* Greeting Selection Component */}
-      <div className='w-full flex-1'>
+      <div className="w-full flex-1">
         <GreetingSelection
           options={greetings}
           defaultSelectedId={4} // Optional: Default to "Merry Christmas"
@@ -35,10 +35,10 @@ export default function GreetingDetailsPage() {
       {/* Next Button */}
       <ButtonContainer>
         <Button
-          text='Next'
+          text="Next"
           onClick={handleNext}
-          bgColor='#C90082'
-          textColor='#FFFFFF'
+          bgColor="#C90082"
+          textColor="#FFFFFF"
         />
       </ButtonContainer>
     </div>

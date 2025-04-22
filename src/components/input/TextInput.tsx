@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 interface TextInputProps {
   label?: string;
@@ -13,16 +13,16 @@ interface TextInputProps {
 const CustomInput: React.FC<TextInputProps> = ({
   label,
   placeholder,
-  type = 'text',
+  type = "text",
   value,
   className,
   maxLength,
   onChange,
 }) => {
   return (
-    <div className='w-full space-y-1 relative'>
+    <div className="w-full space-y-1 relative">
       {label && (
-        <label className='block text-sm font-bold text-gray-700 text-start'>
+        <label className="block text-[18px] font-semibold text-gray-700 text-start">
           {label}
         </label>
       )}
@@ -43,7 +43,7 @@ const CustomInput: React.FC<TextInputProps> = ({
           rounded-[30px]
           focus:outline-none focus:ring-2 focus:ring-pink-500
           transition-all
-          ${className || ''}
+          ${className || ""}
         `}
       />
     </div>
