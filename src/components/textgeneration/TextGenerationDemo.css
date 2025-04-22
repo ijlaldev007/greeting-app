@@ -6,12 +6,16 @@
   margin: 0 auto;
 }
 
+@media (min-width: 768px) {
+  .text-generation-demo-container {
+    max-width: 550px;
+  }
+}
+
 .share-toggle-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 15px; /* Space between card and this section */
-  padding: 15px 0px;
 
   color: #272727;
   font-size: 18px;
@@ -21,6 +25,14 @@
   margin-left: auto;
   margin-right: auto;
   box-sizing: border-box;
+}
+
+@media (min-width: 768px) {
+  .share-toggle-container {
+    margin-top: 20px;
+
+    font-size: 20px;
+  }
 }
 
 .share-toggle-text {

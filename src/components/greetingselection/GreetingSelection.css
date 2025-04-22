@@ -18,7 +18,27 @@
   .greeting-selection {
     height: 500px;
   }
+
+  /* Increase touch targets for tablets */
+  .greeting-label {
+    padding: 20px;
+  }
+
+  .greeting-radio {
+    width: 24px;
+    height: 24px;
+  }
+
+  .greeting-radio:checked::after {
+    width: 12px;
+    height: 12px;
+  }
+
+  .greeting-text {
+    font-size: 18px;
+  }
 }
+
 @media (min-width: 1100px) {
   .greeting-selection {
     height: 350px;
@@ -40,6 +60,13 @@
   &::-webkit-scrollbar-thumb {
     border-radius: 100px;
     background-color: #c90082;
+  }
+}
+
+/* Increase scrollbar width on tablets */
+@media (min-width: 768px) {
+  .scrollbar::-webkit-scrollbar {
+    width: 6px;
   }
 }
 

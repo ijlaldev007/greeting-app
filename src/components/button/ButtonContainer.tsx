@@ -19,7 +19,7 @@ const ButtonContainer: React.FC<ButtonContainerProps> = ({
   // If there's only one button, add a spacer to position it like the Skip button
   return (
     <div
-      className={` pb-[35px] flex flex-col items-center space-y-4 w-full max-w-sm mx-auto md:max-w-md ${className}`}
+      className={`pb-[35px] flex flex-col items-center space-y-4 w-full mx-auto ${className}`}
     >
       {hasMultipleButtons ? (
         // If multiple buttons, render them all
