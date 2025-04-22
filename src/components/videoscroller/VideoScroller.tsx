@@ -1,9 +1,9 @@
-import React, { useRef, useState, useEffect } from "react";
-import "./VideoScroller.css";
-import { VideoScrollerProps } from "./VideoScrollerTypes";
-import VideoList from "./VideoList";
-import VideoSkeleton from "./VideoSkeleton";
-import { useVideoManager } from "../../hooks/useVideoManager";
+import React, { useRef, useState, useEffect } from 'react';
+import './VideoScroller.css';
+import { VideoScrollerProps } from './VideoScrollerTypes';
+import VideoList from './VideoList';
+import VideoSkeleton from './VideoSkeleton';
+import { useVideoManager } from '../../hooks/useVideoManager';
 
 /**
  * VideoScroller component that displays a scrollable list of videos
@@ -11,7 +11,7 @@ import { useVideoManager } from "../../hooks/useVideoManager";
 const VideoScroller: React.FC<VideoScrollerProps> = ({
   onSelect,
   initialSelectedIndex = 1, // Default to second video
-  containerHeight = 430, // Default container height
+  containerHeight = 70, // Default container height in vh units
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [loading, setLoading] = useState(true);
@@ -31,6 +31,16 @@ const VideoScroller: React.FC<VideoScrollerProps> = ({
     if (videos.length > 0 && Object.keys(thumbnails).length >= videos.length) {
       // All videos and thumbnails are loaded
       setLoading(false);
+
+      // Multiple delays to ensure the DOM has been updated and videos are centered
+      setTimeout(() => {
+        // Trigger a resize event to help center the selected video
+        window.dispatchEvent(new Event('resize'));
+      }, 100);
+
+      // Additional resize events with increasing delays for better reliability
+      setTimeout(() => window.dispatchEvent(new Event('resize')), 300);
+      setTimeout(() => window.dispatchEvent(new Event('resize')), 600);
     }
   }, [videos, thumbnails]);
 
@@ -46,8 +56,8 @@ const VideoScroller: React.FC<VideoScrollerProps> = ({
   if (videos.length === 0) {
     return (
       <div
-        className="video-scroller-container"
-        style={{ height: `${containerHeight}px` }}
+        className='video-scroller-container'
+        style={{ height: `${containerHeight}vh` }}
       >
         <VideoSkeleton count={3} />
       </div>
@@ -57,10 +67,8 @@ const VideoScroller: React.FC<VideoScrollerProps> = ({
   return (
     <div
       ref={containerRef}
-      className="video-scroller-container"
-      style={{
-        height: `${containerHeight}px`,
-      }}
+      className='video-scroller-container'
+      style={{ height: `${containerHeight}vh` }}
     >
       {loading ? (
         <VideoSkeleton count={videos.length || 3} />

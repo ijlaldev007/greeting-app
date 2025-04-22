@@ -23,7 +23,7 @@ const VideoList: React.FC<VideoListProps> = ({
   videoRefs,
 }) => {
   const gridRef = useRef<HTMLDivElement>(null);
-  const itemHeight = 220; // Height of each item (200px) + gap (20px)
+  const itemHeight = 190; // Height of each item (200px) + gap (20px)
 
   // Handle wheel events for one-item-at-a-time scrolling
   // Using useCallback to memoize the function
@@ -85,8 +85,8 @@ const VideoList: React.FC<VideoListProps> = ({
     };
   }, [videos.length, handleWheel]); // Re-attach when videos length changes or handler changes
 
-  // Scroll to center the selected item when selectedIndex changes
-  useEffect(() => {
+  // Function to center the selected item
+  const centerSelectedItem = React.useCallback(() => {
     if (gridRef.current && selectedIndex >= 0) {
       // Get the container height
       const containerHeight = gridRef.current.clientHeight;
@@ -102,7 +102,42 @@ const VideoList: React.FC<VideoListProps> = ({
         behavior: 'smooth',
       });
     }
-  }, [selectedIndex, itemHeight]);
+  }, [selectedIndex, itemHeight, gridRef]);
+
+  // Center the selected item when component mounts or selectedIndex changes
+  useEffect(() => {
+    // Initial centering with a small delay
+    const initialTimeoutId = setTimeout(() => {
+      centerSelectedItem();
+    }, 100);
+
+    // Additional centering after a longer delay to ensure everything is rendered
+    const secondTimeoutId = setTimeout(() => {
+      centerSelectedItem();
+    }, 500);
+
+    return () => {
+      clearTimeout(initialTimeoutId);
+      clearTimeout(secondTimeoutId);
+    };
+  }, [centerSelectedItem]);
+
+  // Also center the selected item when the grid is fully loaded
+  useEffect(() => {
+    if (gridRef.current) {
+      const gridElement = gridRef.current; // Store ref value in a variable for cleanup
+
+      const observer = new ResizeObserver(() => {
+        centerSelectedItem();
+      });
+
+      observer.observe(gridElement);
+
+      return () => {
+        observer.unobserve(gridElement);
+      };
+    }
+  }, [centerSelectedItem]);
 
   return (
     <div ref={gridRef} className='video-grid'>

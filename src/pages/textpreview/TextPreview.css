@@ -1,0 +1,35 @@
+.text-preview-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 100vh;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+.text-preview-title {
+  font-size: 24px;
+  font-weight: 600;
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+  max-width: 300px;
+}
+
+.text-preview-content {
+  width: 100%;
+  max-width: 400px;
+  margin-bottom: 20px;
+}
+
+.text-preview-actions {
+  margin-top: 10px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+  .text-preview-title {
+    font-size: 20px;
+  }
+}
