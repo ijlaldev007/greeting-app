@@ -30,9 +30,11 @@ export default function GreetingLocationPage() {
     return () => window.removeEventListener("resize", updateHeight);
   }, []);
 
-  // Navigate to greeting details page
+  // Navigate to text preview page
   const handleNext = () => {
-    navigate("/greeting-details");
+
+    navigate('/text-preview');
+
   };
 
   return (

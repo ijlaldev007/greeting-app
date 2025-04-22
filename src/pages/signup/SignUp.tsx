@@ -33,8 +33,10 @@ const SignUp = () => {
           { abortEarly: false }
         );
 
-        // If validation passes, navigate to next page
-        navigate("/greeting-location");
+
+        // If validation passes, navigate to greeting details page
+        navigate('/greeting-details');
+
       } catch (error) {
         // Handle validation errors with type assertion for Yup error
         const yupError = error as {

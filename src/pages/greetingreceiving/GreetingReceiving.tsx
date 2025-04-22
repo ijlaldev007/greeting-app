@@ -46,8 +46,10 @@ export default function GreetingReceivingPage() {
           { abortEarly: false }
         );
 
-        // If validation passes, navigate to text preview page
-        navigate("/text-preview");
+
+        // If validation passes, navigate to greeting location page
+        navigate('/greeting-location');
+
       }
     } catch (error) {
       // Handle validation errors with type assertion for Yup error
