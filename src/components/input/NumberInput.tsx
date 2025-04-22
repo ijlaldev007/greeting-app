@@ -75,7 +75,7 @@ const PhoneNumberInput: React.FC<PhoneNumberInputProps> = ({
           type='tel'
           value={phone}
           onChange={handlePhoneChange}
-          placeholder='Enter phone number (10-11 digits)'
+          placeholder='Phone number (10-11 digits)'
           maxLength={11}
           className='flex-1 h-full outline-none text-base text-gray-800 placeholder-gray-400 bg-transparent border-none'
         />
