@@ -24,46 +24,66 @@ import GreetingDone from './pages/greetingdone/GreetingDone';
 import VideoScroller from './components/videoscroller/VideoScroller';
 import TextGenerationDemo from './components/textgeneration/TextGenerationDemo';
 
-// No navigation component
+// Error Handling
+import ErrorBoundary from './components/error/ErrorBoundary';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   return (
-    <Router>
-      <div
-        className='relative min-h-screen w-full bg-cover bg-center bg-no-repeat flex flex-col overflow-hidden'
-        style={{ backgroundImage: `url(${backgroundImage})` }}
-      >
-        {/* Main Content */}
-        <div className='flex-1 flex flex-col items-center justify-center p-4'>
-          <Routes>
-            {/* Main Application Flow */}
-            <Route path='/' element={<Navigate to='/splash' />} />
-            <Route path='/splash' element={<SplashScreen />} />
-            <Route path='/onboarding' element={<OnBoardingVideoScreen />} />
-            <Route path='/signup' element={<SignUp />} />
-            <Route path='/sender-details' element={<SenderDetail />} />
-            <Route path='/greeting-location' element={<GreetingLocation />} />
-            <Route path='/greeting-details' element={<GreetingDetails />} />
-            <Route path='/greeting-receiving' element={<GreetingReceiving />} />
-            <Route path='/text-preview' element={<TextPreview />} />
-            <Route path='/greeting-done' element={<GreetingDone />} />
+    <ErrorBoundary>
+      <ToastContainer
+        position='top-right'
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme='light'
+      />
+      <Router>
+        <div
+          className='relative min-h-screen w-full bg-cover bg-center bg-no-repeat flex flex-col overflow-hidden'
+          style={{ backgroundImage: `url(${backgroundImage})` }}
+        >
+          {/* Main Content */}
+          <div className='flex-1 flex flex-col items-center justify-center p-4'>
+            <Routes>
+              {/* Main Application Flow */}
+              <Route path='/' element={<Navigate to='/splash' />} />
+              <Route path='/splash' element={<SplashScreen />} />
+              <Route path='/onboarding' element={<OnBoardingVideoScreen />} />
+              <Route path='/signup' element={<SignUp />} />
+              <Route path='/sender-details' element={<SenderDetail />} />
+              <Route path='/greeting-location' element={<GreetingLocation />} />
+              <Route path='/greeting-details' element={<GreetingDetails />} />
+              <Route
+                path='/greeting-receiving'
+                element={<GreetingReceiving />}
+              />
+              <Route path='/text-preview' element={<TextPreview />} />
+              <Route path='/greeting-done' element={<GreetingDone />} />
 
-            {/* Demo Routes */}
-            <Route
-              path='/demo/video-scroller'
-              element={<VideoScroller containerHeight={80} />}
-            />
-            <Route
-              path='/demo/text-generation'
-              element={<TextGenerationDemo />}
-            />
+              {/* Demo Routes */}
+              <Route
+                path='/demo/video-scroller'
+                element={<VideoScroller containerHeight={80} />}
+              />
+              <Route
+                path='/demo/text-generation'
+                element={<TextGenerationDemo />}
+              />
 
-            {/* Fallback route */}
-            <Route path='*' element={<NotFound />} />
-          </Routes>
+              {/* Fallback route */}
+              <Route path='*' element={<NotFound />} />
+            </Routes>
+          </div>
         </div>
-      </div>
-    </Router>
+      </Router>
+    </ErrorBoundary>
   );
 }
 
