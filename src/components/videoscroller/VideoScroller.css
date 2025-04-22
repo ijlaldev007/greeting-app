@@ -48,7 +48,7 @@
 
 @media (min-width: 1024px) {
   .video-grid {
-    max-width: 500px;
+    max-width: 400px;
   }
 }
 
@@ -84,7 +84,7 @@
 }
 
 .video-item {
-  height: 200px;
+  /* height: 200px; */
   display: flex;
   justify-content: center;
   transition: all 0.3s ease;

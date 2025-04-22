@@ -41,7 +41,7 @@ const PhoneNumberInput: React.FC = () => {
   };
 
   return (
-    <div className='w-full max-w-[400px] relative space-y-1'>
+    <div className='w-full max-w-[400px] md:max-w-[450px] lg:max-w-[500px] relative space-y-1'>
       {/* Top Left Label */}
       <div className='flex justify-start'>
         <label className='text-sm  text-gray-700 font-bold'>Phone Number</label>

@@ -24,7 +24,7 @@ const Button: FC<ButtonProps> = ({
       type={type}
       onClick={onClick}
       disabled={disabled}
-      className={`w-[260px] h-[49px] rounded-[25px] font-medium text-base transition-all duration-300 ease-in-out hover:opacity-90 disabled:opacity-50 ${className}`}
+      className={`w-[80vw] sm:w-[50vw] md:w-[40vw] lg:w-[30vw] xl:w-[260px] max-w-[400px] h-[49px] rounded-[25px] font-medium text-base transition-all duration-300 ease-in-out hover:opacity-90 disabled:opacity-50 ${className}`}
       style={{
         backgroundColor: bgColor,
         color: textColor,

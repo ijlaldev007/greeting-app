@@ -7,7 +7,7 @@ interface VideoProps {
 
 const Video: React.FC<VideoProps> = () => {
   return (
-    <div className='relative w-[90vw] sm:w-[80vw] md:w-[70vw] lg:w-[60vw] max-w-3xl h-[70vh] sm:h-[75vh] lg:h-[75vh] rounded-[30px] overflow-hidden shadow-lg mx-auto'>
+    <div className='relative w-[90vw] sm:w-[80vw] md:w-[70vw] lg:w-[60vw] max-w-3xl h-[70vh] sm:h-[75vh] lg:h-[70vh] rounded-[30px] overflow-hidden shadow-lg mx-auto'>
       {/* Video Title (optional) */}
 
       {/* HTML5 Video Player */}
