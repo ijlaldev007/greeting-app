@@ -1,18 +1,18 @@
-import { useNavigate } from 'react-router-dom';
-import { useState, useEffect } from 'react';
-import GreetingSelection from '../../components/greetingselection/GreetingSelection';
-import Button from '../../components/button/Button';
-import ButtonContainer from '../../components/button/ButtonContainer';
-import { greetings } from '../../constants/greetings';
-import { useGreeting } from '../../context/GreetingContext';
-import { hasSubtypes } from '../../constants/greetingSubtypes';
-import './GreetingDetails.css';
+import { useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
+import GreetingSelection from "../../components/greetingselection/GreetingSelection";
+import Button from "../../components/button/Button";
+import ButtonContainer from "../../components/button/ButtonContainer";
+import { greetings } from "../../constants/greetings";
+import { useGreeting } from "../../context/GreetingContext";
+import { hasSubtypes } from "../../constants/greetingSubtypes";
+import "./GreetingDetails.css";
 
 export default function GreetingDetailsPage() {
   const navigate = useNavigate();
   const { state, setGreetingType } = useGreeting();
   const [selectedId, setSelectedId] = useState<number>(
-    state.selectedGreetingId || 4,
+    state.selectedGreetingId || 4
   );
 
   // Initialize with data from context if available
@@ -30,7 +30,7 @@ export default function GreetingDetailsPage() {
   const handleNext = () => {
     // Find the selected greeting
     const selectedGreeting = greetings.find(
-      (greeting) => greeting.id === selectedId,
+      (greeting) => greeting.id === selectedId
     );
 
     if (selectedGreeting) {
@@ -40,28 +40,28 @@ export default function GreetingDetailsPage() {
       // Check if this greeting type has subtypes
       if (hasSubtypes(selectedId)) {
         // If it has subtypes, go to the subtype selection page
-        navigate('/greeting-subtype');
+        navigate("/greeting-subtype");
       } else {
         // Otherwise, continue with the normal flow
-        navigate('/greeting-receiving');
+        navigate("/greeting-receiving");
       }
     } else {
       // If no greeting is selected, continue with the normal flow
-      navigate('/greeting-receiving');
+      navigate("/greeting-receiving");
     }
   };
 
   return (
-    <div className='min-h-screen w-full flex flex-col items-center justify-between px-4 pt-6 pb-0 sm:px-6 md:w-3/4 md:px-10 lg:w-1/2 greeting-details-page'>
+    <div className="min-h-screen w-full flex flex-col items-center justify-between px-4 pt-6 pb-0 ">
       {/* Heading */}
-      <div className='w-full text-center mb-4 md:mb-6'>
-        <h1 className='typography-heading'>
+      <div className="w-full text-center mb-4 md:mb-6">
+        <h1 className="typography-heading">
           What type of greeting would you like to send?
         </h1>
       </div>
 
       {/* Greeting Selection Component */}
-      <div className='w-full flex-1'>
+      <div className="w-1/2 flex-1">
         <GreetingSelection
           options={greetings}
           defaultSelectedId={selectedId}
@@ -72,10 +72,10 @@ export default function GreetingDetailsPage() {
       {/* Next Button */}
       <ButtonContainer>
         <Button
-          text='Next'
+          text="Next"
           onClick={handleNext}
-          bgColor='#C90082'
-          textColor='#FFFFFF'
+          bgColor="#C90082"
+          textColor="#FFFFFF"
         />
       </ButtonContainer>
     </div>

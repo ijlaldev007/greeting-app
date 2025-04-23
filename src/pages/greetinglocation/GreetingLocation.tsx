@@ -1,17 +1,17 @@
-import { useNavigate } from 'react-router-dom';
-import { useEffect, useState } from 'react';
-import Button from '../../components/button/Button';
-import ButtonContainer from '../../components/button/ButtonContainer';
-import VideoComponent from '../../components/videoscroller/VideoScroller';
-import { useGreeting } from '../../context/GreetingContext';
-import { VideoItem } from '../../utils/videoUtils';
+import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import Button from "../../components/button/Button";
+import ButtonContainer from "../../components/button/ButtonContainer";
+import VideoComponent from "../../components/videoscroller/VideoScroller";
+import { useGreeting } from "../../context/GreetingContext";
+import { VideoItem } from "../../utils/videoUtils";
 
 export default function GreetingLocationPage() {
   const navigate = useNavigate();
   const { setSelectedVideo } = useGreeting();
   const [containerHeight, setContainerHeight] = useState(70); // Default height
   const [selectedVideo, setSelectedVideoState] = useState<VideoItem | null>(
-    null,
+    null
   );
 
   // Set container height based on screen size
@@ -30,10 +30,10 @@ export default function GreetingLocationPage() {
     updateHeight();
 
     // Add resize listener
-    window.addEventListener('resize', updateHeight);
+    window.addEventListener("resize", updateHeight);
 
     // Cleanup
-    return () => window.removeEventListener('resize', updateHeight);
+    return () => window.removeEventListener("resize", updateHeight);
   }, []);
 
   // Handle video selection
@@ -48,18 +48,18 @@ export default function GreetingLocationPage() {
       setSelectedVideo(
         selectedVideo.id,
         selectedVideo.src,
-        selectedVideo.title,
+        selectedVideo.title
       );
     }
 
-    navigate('/text-preview');
+    navigate("/text-preview");
   };
 
   return (
-    <div className='w-full sm:w-full md:w-3/4 lg:w-1/2 min-h-screen flex flex-col items-center justify-between px-4 pt-6 pb-0'>
+    <div className="w-full   min-h-screen flex flex-col items-center justify-between px-4 pt-6 pb-0">
       {/* Heading */}
-      <h1 className='typography-heading mb-4 md:mb-6'>
-        Choose the <br className='sm:hidden' />
+      <h1 className="typography-heading mb-4 md:mb-6">
+        Choose the <br className="sm:hidden" />
         greeting location
       </h1>
 
@@ -72,10 +72,10 @@ export default function GreetingLocationPage() {
       {/* Next Button */}
       <ButtonContainer>
         <Button
-          text='Next'
+          text="Next"
           onClick={handleNext}
-          bgColor='#C90082'
-          textColor='#FFFFFF'
+          bgColor="#C90082"
+          textColor="#FFFFFF"
         />
       </ButtonContainer>
     </div>
