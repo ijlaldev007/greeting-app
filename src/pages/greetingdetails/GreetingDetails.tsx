@@ -61,7 +61,7 @@ export default function GreetingDetailsPage() {
       </div>
 
       {/* Greeting Selection Component */}
-      <div className="w-1/2 flex-1">
+      <div className="w-full max-w-md mx-auto flex-1 mb-2">
         <GreetingSelection
           options={greetings}
           defaultSelectedId={selectedId}
