@@ -1,0 +1,11 @@
+/* Specific styles for the GreetingDetails page */
+.greeting-details-page .greeting-text-container,
+.greeting-details-page .greeting-text,
+.greeting-details-page .greeting-label {
+  text-align: left !important;
+}
+
+/* Ensure the text is properly aligned */
+.greeting-details-page .typography-greeting-item {
+  text-align: left !important;
+}

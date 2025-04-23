@@ -6,6 +6,7 @@ import ButtonContainer from '../../components/button/ButtonContainer';
 import { greetings } from '../../constants/greetings';
 import { useGreeting } from '../../context/GreetingContext';
 import { hasSubtypes } from '../../constants/greetingSubtypes';
+import './GreetingDetails.css';
 
 export default function GreetingDetailsPage() {
   const navigate = useNavigate();
@@ -51,7 +52,7 @@ export default function GreetingDetailsPage() {
   };
 
   return (
-    <div className='min-h-screen w-full flex flex-col items-center justify-between px-4 pt-6 pb-0 sm:px-6 md:w-3/4 md:px-10 lg:w-1/2'>
+    <div className='min-h-screen w-full flex flex-col items-center justify-between px-4 pt-6 pb-0 sm:px-6 md:w-3/4 md:px-10 lg:w-1/2 greeting-details-page'>
       {/* Heading */}
       <div className='w-full text-center mb-4 md:mb-6'>
         <h1 className='typography-heading'>
