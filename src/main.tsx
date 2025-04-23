@@ -3,6 +3,7 @@ import { createRoot } from 'react-dom/client';
 import './index.css'; // or './App.css' — whichever you added Tailwind to
 import './styles/global.css'; // Global styles
 import './styles/typography.css'; // Typography styles
+import './styles/animations.css'; // Page transition animations
 import App from './App.tsx';
 import { showErrorToast } from './utils/toastUtils';
 
