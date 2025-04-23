@@ -23,7 +23,6 @@ import GreetingSummary from './pages/greetingsummary/GreetingSummary';
 
 // Demo Components
 import VideoScroller from './components/videoscroller/VideoScroller';
-import TextGenerationDemo from './components/textgeneration/TextGenerationDemo';
 
 // Error Handling
 import ErrorBoundary from './components/error/ErrorBoundary';
@@ -82,10 +81,6 @@ function App() {
                 <Route
                   path='/demo/video-scroller'
                   element={<VideoScroller containerHeight={80} />}
-                />
-                <Route
-                  path='/demo/text-generation'
-                  element={<TextGenerationDemo />}
                 />
 
                 {/* Fallback route */}
