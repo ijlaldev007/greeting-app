@@ -46,14 +46,14 @@ const SenderDetail = () => {
     }
   }, [state.senderName]);
   return (
-    <div className='min-h-screen w-full flex flex-col justify-between px-6 py-8 relative overflow-hidden'>
+    <div className='min-h-screen w-full flex flex-col justify-between relative overflow-hidden'>
       <div>
         {/* Heading Section */}
         <div className='text-center mt-8 z-10 relative'>
-          <h1 className='text-[22px] font-bold text-gray-900 font-montserrat'>
+          <h1 className='typography-heading mb-4'>
             Who is sending the video greeting
           </h1>
-          <p className='text-base text-gray-700 mt-2'>Type your name here</p>
+          <p className='typography-subheading mt-2'>Type your name here</p>
         </div>
 
         {/* Input Field (on top of background image) */}
@@ -61,7 +61,7 @@ const SenderDetail = () => {
           <TextInput
             placeholder="Greeter's name here (default name)"
             type='text'
-            className='bg-white relative z-10'
+            className='bg-white relative z-10 typography-placeholder'
             value={senderName}
             onChange={handleNameChange}
           />

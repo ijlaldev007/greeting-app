@@ -14,7 +14,7 @@ const GreetingDone = () => {
     <div className='min-h-screen w-full flex justify-between flex-col items-center px-4 sm:px-6 md:px-10 pt-6 pb-0'>
       <div>
         {/* Mobile view Heading */}
-        <h1 className='mb-4 text-center text-gray-800 text-[25px] md:text-[32px] font-semibold font-montserrat leading-[100%] block md:hidden'>
+        <h1 className='typography-heading mb-4 block md:hidden'>
           Yey!
           <br />
           Masha is creating
@@ -23,22 +23,22 @@ const GreetingDone = () => {
         </h1>
 
         {/* Tablet and Web view Heading */}
-        <h1 className='mb-4 text-center text-gray-800 text-[25px] md:text-[32px] font-semibold font-montserrat leading-[100%] hidden md:block'>
+        <h1 className='typography-heading mb-4 hidden md:block'>
           Yey! Masha is creating your greeting!
         </h1>
 
         {/* Paragraphs with larger text on md+ screens */}
-        <p className='text-[16px] md:text-[18px] text-center text-gray-700'>
+        <p className='typography-subheading'>
           It takes Masha up to 48 hours to record a greeting.
         </p>
-        <p className='text-[16px] md:text-[18px] text-center text-gray-700 mt-1'>
+        <p className='typography-subheading mt-1'>
           Once the greeting is ready you will get a link for viewing and sharing
           via email
         </p>
 
         <a
           href='mailto:MashaGreeting@Support.ai'
-          className='mt-3 text-white border-b border-white inline-block mx-auto font-medium text-[16px] md:text-[18px]'
+          className='mt-3 text-white border-b border-white inline-block mx-auto typography-greeting-item'
         >
           MashaGreeting@Support.ai
         </a>

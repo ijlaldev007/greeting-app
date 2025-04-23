@@ -52,12 +52,15 @@ const TextGeneration: React.FC<TextGenerationProps> = ({
 
   return (
     <div className='text-generation-container'>
-      <div className='text-content'>
+      <div className='text-content typography-subheading text-left'>
         <p dangerouslySetInnerHTML={{ __html: renderTextWithPlaceholders() }} />
       </div>
 
       <div className='text-generation-actions'>
-        <button className='generate-button' onClick={handleGenerateClick}>
+        <button
+          className='generate-button typography-button'
+          onClick={handleGenerateClick}
+        >
           <svg
             className='refresh-icon'
             viewBox='0 0 24 24'

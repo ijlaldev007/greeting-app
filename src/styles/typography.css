@@ -1,0 +1,103 @@
+/* Typography Utility Classes */
+
+/* Headings */
+.typography-heading {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 25px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  text-align: center;
+  color: #272727;
+}
+
+/* Subheadings */
+.typography-subheading {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  text-align: center;
+  color: #595959;
+}
+
+/* Input Labels */
+.typography-label {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  color: #272727;
+}
+
+/* Placeholders */
+.typography-placeholder {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  color: #BEBEBE;
+}
+
+/* Greeting Selection Items */
+.typography-greeting-item {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  color: #272727;
+}
+
+/* Button Text */
+.typography-button {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  text-align: center;
+  color: inherit;
+}
+
+/* Tailwind Utility Classes */
+/* These classes can be used directly in your JSX */
+
+/* Font Family */
+.font-montserrat {
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* Line Heights */
+.leading-tight {
+  line-height: 100%;
+}
+
+/* Letter Spacing */
+.tracking-normal {
+  letter-spacing: 0%;
+}
+
+/* Text Colors */
+.text-heading {
+  color: #272727;
+}
+
+.text-subheading {
+  color: #595959;
+}
+
+.text-placeholder {
+  color: #BEBEBE;
+}
+
+.text-primary {
+  color: #C90082;
+}
+
+.text-secondary {
+  color: #FFA600;
+}

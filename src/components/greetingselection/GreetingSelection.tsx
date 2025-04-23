@@ -1,6 +1,6 @@
 // src/components/GreetingSelection/GreetingSelection.tsx
-import React, { useState } from "react";
-import "./GreetingSelection.css";
+import React, { useState } from 'react';
+import './GreetingSelection.css';
 
 type Option = {
   id: number;
@@ -19,7 +19,7 @@ const GreetingSelection: React.FC<GreetingSelectionProps> = ({
   onSelect,
 }) => {
   const [selectedId, setSelectedId] = useState<number | null>(
-    defaultSelectedId
+    defaultSelectedId,
   );
 
   const handleSelect = (id: number) => {
@@ -28,32 +28,34 @@ const GreetingSelection: React.FC<GreetingSelectionProps> = ({
   };
 
   return (
-    <div className="greeting-container shadow-md">
-      <div className="greeting-selection scrollbar w-[90vw] sm:w-[80vw] md:w-[70vw] lg:w-[50vw] xl:w-[40vw] h-[45vh] sm:h-[70vh] md:h-[65vh] lg:h-[65vh] xl:h-[70vh]">
+    <div className='greeting-container shadow-md'>
+      <div className='greeting-selection scrollbar w-[90vw] sm:w-[80vw] md:w-[70vw] lg:w-[50vw] xl:w-[40vw] h-[45vh] sm:h-[70vh] md:h-[65vh] lg:h-[65vh] xl:h-[70vh]'>
         {options.map((item) => (
           <div
             key={item.id}
             className={`greeting-item ${
-              selectedId === item.id ? "selected" : ""
+              selectedId === item.id ? 'selected' : ''
             }`}
           >
             {selectedId === item.id && (
               <img
-                src="/src/assets/images/sidemasha.png"
-                alt="selected indicator"
-                className="selected-icon"
+                src='/src/assets/images/sidemasha.png'
+                alt='selected indicator'
+                className='selected-icon'
               />
             )}
-            <label className="greeting-label">
+            <label className='greeting-label'>
               <input
-                type="radio"
-                name="selection"
+                type='radio'
+                name='selection'
                 value={item.id}
                 checked={selectedId === item.id}
                 onChange={() => handleSelect(item.id)}
-                className="greeting-radio"
+                className='greeting-radio'
               />
-              <span className="greeting-text">{item.name}</span>
+              <span className='greeting-text typography-greeting-item'>
+                {item.name}
+              </span>
             </label>
           </div>
         ))}
