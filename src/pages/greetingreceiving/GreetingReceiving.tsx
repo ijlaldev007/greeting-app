@@ -111,7 +111,7 @@ export default function GreetingReceivingPage() {
         <div className='relative w-full max-w-md mx-auto mt-6'>
           <TextInput
             placeholder="Recipient's name here..."
-            className='bg-white typography-placeholder'
+            className='bg-white typography-placeholder text-heading'
             value={recipientName}
             onChange={handleNameChange}
             maxLength={50}
