@@ -58,7 +58,7 @@ const TextGeneration: React.FC<TextGenerationProps> = ({
 
       <div className='text-generation-actions'>
         <button
-          className='generate-button typography-button'
+          className='generate-button typography-greeting-item'
           onClick={handleGenerateClick}
         >
           <svg

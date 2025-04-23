@@ -68,12 +68,14 @@ const SignUp = () => {
   );
 
   return (
-    <div className='min-h-screen flex flex-col items-center justify-between px-4 sm:px-6 md:px-10 pt-6 pb-0'>
+    <div className='min-h-screen w-full flex flex-col items-center justify-between px-4 pt-6 pb-0 sm:px-6 md:w-3/4 md:px-10 lg:w-1/2'>
       {/* Top Heading */}
-      <h1 className='typography-heading mb-4'>Sign Up</h1>
+      <div className='w-full text-center mb-4 md:mb-6'>
+        <h1 className='typography-heading'>Sign Up</h1>
+      </div>
 
       {/* Inputs */}
-      <div className='w-full max-w-sm md:max-w-md lg:max-w-lg space-y-3'>
+      <div className='w-full max-w-sm md:max-w-md lg:max-w-lg space-y-[30px]'>
         <NumberInput value={phone} onChange={handlePhoneChange} />
         <EmailInput
           type='email'

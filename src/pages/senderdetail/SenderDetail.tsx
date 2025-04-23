@@ -61,7 +61,7 @@ const SenderDetail = () => {
           <TextInput
             placeholder="Greeter's name here (default name)"
             type='text'
-            className='bg-white relative z-10 typography-placeholder'
+            className='bg-white relative z-10 typography-placeholder text-heading'
             value={senderName}
             onChange={handleNameChange}
           />

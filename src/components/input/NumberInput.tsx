@@ -53,14 +53,14 @@ const PhoneNumberInput: React.FC<PhoneNumberInputProps> = ({
   };
 
   return (
-    <div className='w-full max-w-[400px] md:max-w-[450px] lg:max-w-[500px] relative space-y-1'>
+    <div className='w-full relative space-y-1'>
       {/* Top Left Label */}
       <div className='flex justify-start'>
         <label className='typography-label'>Phone Number</label>
       </div>
 
       {/* Phone Input */}
-      <div className='relative flex items-center h-[51px] rounded-[30px]  bg-white focus-within:ring-2 focus-within:ring-primary transition-all px-4'>
+      <div className='relative flex items-center h-[51px] rounded-[30px] bg-white focus-within:ring-2 focus-within:ring-[#C90082] transition-all px-4'>
         <button
           type='button'
           onClick={() => setShowDropdown(!showDropdown)}

@@ -39,7 +39,7 @@ const CustomInput: React.FC<TextInputProps> = ({
           placeholder:typography-placeholder
           border border-gray-300
           rounded-[30px]
-          focus:outline-none focus:ring-2 focus:ring-primary
+          focus:outline-none focus:ring-2 focus:ring-[#C90082]
           transition-all
           ${className || ''}
         `}
