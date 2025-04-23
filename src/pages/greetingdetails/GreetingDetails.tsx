@@ -40,11 +40,13 @@ export default function GreetingDetailsPage() {
   };
 
   return (
-    <div className='w-full sm:w-full md:w-3/4 lg:w-1/2 min-h-screen flex flex-col items-center justify-between px-4 pt-6 pb-0'>
+    <div className='min-h-screen w-full flex flex-col items-center justify-between px-4 pt-6 pb-0 sm:px-6 md:w-3/4 md:px-10 lg:w-1/2'>
       {/* Heading */}
-      <h1 className='typography-heading mb-4 md:mb-6'>
-        What do you want to congratulate with?
-      </h1>
+      <div className='w-full text-center mb-4 md:mb-6'>
+        <h1 className='typography-heading'>
+          What do you want to congratulate with?
+        </h1>
+      </div>
 
       {/* Greeting Selection Component */}
       <div className='w-full flex-1'>

@@ -16,3 +16,40 @@ html {
   height: 100%;
   width: 100%;
 }
+
+/* Custom scrollbar styling */
+.scrollbar {
+  position: relative;
+}
+
+.scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #c90082 !important;
+}
+
+.scrollbar::-webkit-scrollbar-track {
+  background-color: #c9008240;
+}
+
+.scrollbar::-webkit-scrollbar {
+  width: 4px;
+  background-color: #c9008240;
+}
+
+.scrollbar::-webkit-scrollbar-thumb {
+  border-radius: 100px;
+  background-color: #c90082;
+}
+
+/* Increase scrollbar width on tablets */
+@media (min-width: 768px) {
+  .scrollbar::-webkit-scrollbar {
+    width: 6px;
+  }
+}
+
+/* Input focus styles */
+.input-focus-primary:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px #c90082;
+  border-color: #c90082;
+}

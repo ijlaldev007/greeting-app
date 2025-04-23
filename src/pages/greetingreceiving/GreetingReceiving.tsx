@@ -94,37 +94,41 @@ export default function GreetingReceivingPage() {
   };
 
   return (
-    <div className='w-full sm:w-full lg:w-1/2 min-h-screen flex flex-col items-center justify-between px-4 pt-6 pb-0'>
-      {/* Step 1: Recipient Name Input */}
-      <div className='w-full flex flex-col items-center gap-2'>
-        {/* Responsive Heading - stays on one line for larger screens */}
-        <h1 className='typography-heading whitespace-normal sm:whitespace-nowrap'>
-          Who is receiving the video greeting?
-        </h1>
+    <div className='min-h-screen w-full flex flex-col justify-between'>
+      <div>
+        {/* Heading Section */}
+        <div className='text-center mt-8'>
+          {/* Responsive Heading - stays on one line for larger screens */}
+          <h1 className='typography-heading mb-4 whitespace-normal sm:whitespace-nowrap'>
+            Who is receiving the video greeting?
+          </h1>
 
-        {/* Light grey instruction */}
-        <p className='typography-subheading -mt-1'>Type recipient's name</p>
+          {/* Light grey instruction */}
+          <p className='typography-subheading mt-2'>Type recipient's name</p>
+        </div>
 
-        {/* Text Input for recipient's name */}
-        <TextInput
-          placeholder="Recipient's name here..."
-          className='w-full max-w-md typography-placeholder'
-          value={recipientName}
-          onChange={handleNameChange}
-          maxLength={50}
-        />
+        {/* Input Field */}
+        <div className='relative w-full max-w-md mx-auto mt-6'>
+          <TextInput
+            placeholder="Recipient's name here..."
+            className='bg-white typography-placeholder'
+            value={recipientName}
+            onChange={handleNameChange}
+            maxLength={50}
+          />
+        </div>
       </div>
 
       {/* Step 2: Relationship Selection (only shown in step 2) */}
       {step === 2 && (
         <>
           {/* Subheading */}
-          <h2 className='typography-label w-full max-w-md mt-8'>
+          <h2 className='typography-label w-full max-w-md mx-auto text-center mt-4'>
             The recipient is your:
           </h2>
 
           {/* Greeting Selection */}
-          <div className='w-full flex-1'>
+          <div className='w-full max-w-md mx-auto flex-1 mb-2'>
             <GreetingSelection
               options={relations}
               defaultSelectedId={selectedRelationId}
