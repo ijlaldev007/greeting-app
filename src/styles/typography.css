@@ -39,7 +39,7 @@
   font-size: 14px;
   line-height: 100%;
   letter-spacing: 0%;
-  color: #BEBEBE;
+  color: #bebebe;
 }
 
 /* Greeting Selection Items */
@@ -50,6 +50,7 @@
   line-height: 100%;
   letter-spacing: 0%;
   color: #272727;
+  text-align: left;
 }
 
 /* Button Text */
@@ -91,13 +92,13 @@
 }
 
 .text-placeholder {
-  color: #BEBEBE;
+  color: #bebebe;
 }
 
 .text-primary {
-  color: #C90082;
+  color: #c90082;
 }
 
 .text-secondary {
-  color: #FFA600;
+  color: #ffa600;
 }

@@ -53,9 +53,11 @@ const GreetingSelection: React.FC<GreetingSelectionProps> = ({
                 onChange={() => handleSelect(item.id)}
                 className='greeting-radio'
               />
-              <span className='greeting-text typography-greeting-item'>
-                {item.name}
-              </span>
+              <div className='greeting-text-container flex-1'>
+                <span className='greeting-text typography-greeting-item'>
+                  {item.name}
+                </span>
+              </div>
             </label>
           </div>
         ))}

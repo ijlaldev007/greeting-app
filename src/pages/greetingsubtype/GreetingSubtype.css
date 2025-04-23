@@ -1,0 +1,44 @@
+.no-subtypes-message {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 10px;
+  text-align: center;
+  font-size: 18px;
+  color: #666;
+}
+
+/* Additional styles for the subtype page */
+.subtype-page .greeting-text {
+  padding-right: 10px; /* Add some padding on the right for better readability */
+}
+
+/* Adjust radio button position for better alignment with longer text */
+.subtype-page .greeting-radio {
+  margin-top: 3px; /* Align radio button with the first line of text */
+  flex-shrink: 0; /* Prevent radio button from shrinking */
+}
+
+/* Make sure the text has enough space */
+.subtype-page .greeting-label {
+  padding: 14px 16px;
+}
+
+/* Responsive adjustments */
+@media (min-width: 768px) {
+  .subtype-page .greeting-label {
+    padding: 16px 20px;
+  }
+
+  .subtype-page .greeting-text {
+    padding-right: 15px;
+  }
+}
+
+/* Ensure the container has proper spacing */
+.subtype-page .greeting-container {
+  margin-top: 10px;
+}

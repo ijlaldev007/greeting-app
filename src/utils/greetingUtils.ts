@@ -44,12 +44,17 @@ export const mapGreetingIdToType = (greetingId: number): GreetingType => {
 
     // Congratulations
     case 17: // Congratulations
-    case 18: // Graduation
-    case 19: // New Job
-    case 20: // New Home
-    case 21: // New Baby
-    case 22: // Wedding Congratulations
       return GreetingType.CONGRATULATIONS;
+    case 18: // Graduation
+      return GreetingType.GRADUATION;
+    case 19: // New Job
+      return GreetingType.NEW_JOB;
+    case 20: // New Home
+      return GreetingType.NEW_HOME;
+    case 21: // New Baby
+      return GreetingType.NEW_BABY;
+    case 22: // Wedding Congratulations
+      return GreetingType.WEDDING;
 
     // General greetings
     case 23: // Thank You
@@ -58,11 +63,15 @@ export const mapGreetingIdToType = (greetingId: number): GreetingType => {
     case 25: // Friendship
       return GreetingType.FRIENDSHIP;
     case 26: // Good Luck
+      return GreetingType.GOOD_LUCK;
     case 27: // Miss You
+      return GreetingType.MISS_YOU;
     case 28: // Retirement
+      return GreetingType.RETIREMENT;
     case 29: // Welcome
+      return GreetingType.WELCOME;
     case 30: // Farewell
-      return GreetingType.GENERAL;
+      return GreetingType.FAREWELL;
 
     default:
       // Default to BIRTHDAY if no mapping is found

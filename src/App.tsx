@@ -10,20 +10,21 @@ import "./App.css";
 import backgroundImage from "./assets/images/background-pic.jpg";
 
 // Page Components
-import NotFound from "./pages/notfound/NotFound";
-import SplashScreen from "./pages/splash/SplashScreen";
-import OnBoardingVideoScreen from "./pages/onboarding/OnBoardingVideoScreen";
-import SignUp from "./pages/signup/SignUp";
-import SenderDetail from "./pages/senderdetail/SenderDetail";
-import GreetingLocation from "./pages/greetinglocation/GreetingLocation";
-import GreetingDetails from "./pages/greetingdetails/GreetingDetails";
-import GreetingReceiving from "./pages/greetingreceiving/GreetingReceiving";
-import TextPreview from "./pages/textpreview/TextPreview";
-import GreetingDone from "./pages/greetingdone/GreetingDone";
-import GreetingSummary from "./pages/greetingsummary/GreetingSummary";
+import NotFound from './pages/notfound/NotFound';
+import SplashScreen from './pages/splash/SplashScreen';
+import OnBoardingVideoScreen from './pages/onboarding/OnBoardingVideoScreen';
+import SignUp from './pages/signup/SignUp';
+import SenderDetail from './pages/senderdetail/SenderDetail';
+import GreetingLocation from './pages/greetinglocation/GreetingLocation';
+import GreetingDetails from './pages/greetingdetails/GreetingDetails';
+import GreetingSubtype from './pages/greetingsubtype/GreetingSubtype';
+import GreetingReceiving from './pages/greetingreceiving/GreetingReceiving';
+import TextPreview from './pages/textpreview/TextPreview';
+import GreetingDone from './pages/greetingdone/GreetingDone';
+import GreetingSummary from './pages/greetingsummary/GreetingSummary';
 
 // Demo Components
-import VideoScroller from "./components/videoscroller/VideoScroller";
+import VideoScroller from './components/videoscroller/VideoScroller';
 import TextGenerationDemo from "./components/textgeneration/TextGenerationDemo";
 
 // Error Handling
@@ -48,48 +49,15 @@ const ForceSplashRedirect = () => {
 
     if (isReload) {
       setIsReloading(true);
-      // Delay the redirect until React renders
       setTimeout(() => {
-        window.location.replace("/splash"); // Immediate redirect on refresh
+        window.location.replace("/splash");
       }, 0);
     }
   }, [location]);
 
-  if (isReloading) {
-    // Do not render anything while the redirect is happening
-    return null;
-  }
-
+  if (isReloading) return null;
   return null;
 };
-
-function AppRoutes() {
-  return (
-    <>
-      <ForceSplashRedirect />
-
-      <Routes>
-        <Route path="/" element={<Navigate to="/splash" />} />
-        <Route path="/splash" element={<SplashScreen />} />
-        <Route path="/onboarding" element={<OnBoardingVideoScreen />} />
-        <Route path="/signup" element={<SignUp />} />
-        <Route path="/sender-details" element={<SenderDetail />} />
-        <Route path="/greeting-location" element={<GreetingLocation />} />
-        <Route path="/greeting-details" element={<GreetingDetails />} />
-        <Route path="/greeting-receiving" element={<GreetingReceiving />} />
-        <Route path="/text-preview" element={<TextPreview />} />
-        <Route path="/greeting-done" element={<GreetingDone />} />
-        <Route path="/greeting-summary" element={<GreetingSummary />} />
-        <Route
-          path="/demo/video-scroller"
-          element={<VideoScroller containerHeight={80} />}
-        />
-        <Route path="/demo/text-generation" element={<TextGenerationDemo />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
-    </>
-  );
-}
 
 function App() {
   return (
@@ -113,8 +81,29 @@ function App() {
             className="relative min-h-screen w-full bg-cover bg-center bg-no-repeat flex flex-col overflow-hidden"
             style={{ backgroundImage: `url(${backgroundImage})` }}
           >
-            <div className="flex-1 flex flex-col items-center justify-center p-4">
-              <AppRoutes />
+            <ForceSplashRedirect />
+            <div className='flex-1 flex flex-col items-center justify-center p-4'>
+              <Routes>
+                <Route path='/' element={<Navigate to='/splash' />} />
+                <Route path='/splash' element={<SplashScreen />} />
+                <Route path='/onboarding' element={<OnBoardingVideoScreen />} />
+                <Route path='/signup' element={<SignUp />} />
+                <Route path='/sender-details' element={<SenderDetail />} />
+                <Route path='/greeting-location' element={<GreetingLocation />} />
+                <Route path='/greeting-details' element={<GreetingDetails />} />
+                <Route path='/greeting-subtype' element={<GreetingSubtype />} />
+                <Route path='/greeting-receiving' element={<GreetingReceiving />} />
+                <Route path='/text-preview' element={<TextPreview />} />
+                <Route path='/greeting-done' element={<GreetingDone />} />
+                <Route path='/greeting-summary' element={<GreetingSummary />} />
+
+                {/* Demo Routes */}
+                <Route path='/demo/video-scroller' element={<VideoScroller containerHeight={80} />} />
+                <Route path='/demo/text-generation' element={<TextGenerationDemo />} />
+
+                {/* Fallback route */}
+                <Route path='*' element={<NotFound />} />
+              </Routes>
             </div>
           </div>
         </Router>

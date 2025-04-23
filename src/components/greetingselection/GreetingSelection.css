@@ -16,12 +16,17 @@
 /* iPad and up */
 @media (min-width: 768px) {
   .greeting-selection {
-    
   }
 
   /* Increase touch targets for tablets */
   .greeting-label {
     padding: 20px;
+  }
+
+  /* Adjust text for tablets */
+  .greeting-text {
+    font-size: 18px;
+    line-height: 1.5;
   }
 
   .greeting-radio {
@@ -81,11 +86,12 @@
 
 .greeting-label {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   padding: 16px;
   width: 100%;
   cursor: pointer;
   transition: transform 0.7s ease;
+  text-align: left;
 }
 
 .greeting-radio {
@@ -96,11 +102,13 @@
   border: 1px solid #c90082;
   border-radius: 50%;
   margin-right: 12px;
+  margin-top: 2px; /* Align with first line of text */
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: all 0.7s ease;
+  flex-shrink: 0; /* Prevent radio from shrinking */
 }
 
 .greeting-radio:checked::after {
@@ -113,11 +121,23 @@
   transition: background-color 0.3s ease;
 }
 
+.greeting-text-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
+}
+
 .greeting-text {
   font-size: 16px;
   font-weight: 500;
   color: #333;
   transition: color 0.3s ease;
+  line-height: 1.4;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
+  text-align: left;
 }
 
 .selected-icon {
