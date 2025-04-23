@@ -48,8 +48,8 @@ const SignUp = () => {
         // Save data to context
         setRecipientInfo(email, phone);
 
-        // If validation passes, navigate to greeting details page
-        navigate('/greeting-details');
+        // If validation passes, navigate to sender details page
+        navigate('/sender-details');
       } catch (error) {
         // Handle validation errors with type assertion for Yup error
         const yupError = error as {

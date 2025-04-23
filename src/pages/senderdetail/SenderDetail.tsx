@@ -25,7 +25,7 @@ const SenderDetail = () => {
       setSenderName(senderName);
 
       // If validation passes, navigate to next page
-      navigate('/greeting-receiving');
+      navigate('/greeting-details');
     } catch (error) {
       // Handle validation errors with type assertion for Yup error
       const yupError = error as { inner?: { path: string; message: string }[] };

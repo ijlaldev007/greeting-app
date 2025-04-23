@@ -121,8 +121,10 @@ const CustomTextGeneration: React.FC<CustomTextGenerationProps> = () => {
         greetingType,
         fallbackOptions,
       );
-      setCurrentGreeting(fallbackGreeting);
-    } else {
+      if (fallbackGreeting) {
+        setCurrentGreeting(fallbackGreeting);
+      }
+    } else if (newGreeting) {
       setCurrentGreeting(newGreeting);
     }
   }, [greetingType, state.greetingType]);
@@ -152,12 +154,17 @@ const CustomTextGeneration: React.FC<CustomTextGenerationProps> = () => {
     {
       id: 'achievement',
       text: 'achievement',
-      value: 'accomplishment', // Default value, could be more specific based on context
+      value: state.greetingSubtype || 'accomplishment', // Use subtype if available
     },
     {
       id: 'occasion',
       text: 'occasion',
       value: state.greetingType || 'special day',
+    },
+    {
+      id: 'subtype',
+      text: 'subtype',
+      value: state.greetingSubtype || '',
     },
   ];
 
@@ -185,8 +192,10 @@ const CustomTextGeneration: React.FC<CustomTextGenerationProps> = () => {
         greetingType,
         fallbackOptions,
       );
-      setCurrentGreeting(fallbackGreeting);
-    } else {
+      if (fallbackGreeting) {
+        setCurrentGreeting(fallbackGreeting);
+      }
+    } else if (newGreeting) {
       setCurrentGreeting(newGreeting);
     }
   };

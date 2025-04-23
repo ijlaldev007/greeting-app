@@ -13,6 +13,10 @@ interface GreetingContextState {
   greetingType: string;
   selectedGreetingId: number;
 
+  // Greeting subtype (from GreetingSubtype)
+  greetingSubtype: string;
+  selectedSubtypeId: number;
+
   // Recipient details (from GreetingReceiving)
   recipientName: string;
   recipientRelationship: string;
@@ -31,6 +35,7 @@ interface GreetingContextType {
   setRecipientInfo: (email: string, phone: string) => void;
   setSenderName: (name: string) => void;
   setGreetingType: (type: string, id: number) => void;
+  setGreetingSubtype: (subtype: string, id: number) => void;
   setRecipientDetails: (name: string, relationship: string) => void;
   setSelectedVideo: (id: string, src: string, title: string) => void;
   resetData: () => void;
@@ -48,6 +53,8 @@ const initialState: GreetingContextState = {
   senderName: '',
   greetingType: '',
   selectedGreetingId: 0,
+  greetingSubtype: '',
+  selectedSubtypeId: 0,
   recipientName: '',
   recipientRelationship: '',
   selectedVideoId: '',
@@ -86,6 +93,14 @@ export const GreetingProvider: React.FC<{ children: ReactNode }> = ({
     }));
   };
 
+  const setGreetingSubtype = (subtype: string, id: number) => {
+    setState((prevState) => ({
+      ...prevState,
+      greetingSubtype: subtype,
+      selectedSubtypeId: id,
+    }));
+  };
+
   const setRecipientDetails = (name: string, relationship: string) => {
     setState((prevState) => ({
       ...prevState,
@@ -113,6 +128,7 @@ export const GreetingProvider: React.FC<{ children: ReactNode }> = ({
     setRecipientInfo,
     setSenderName,
     setGreetingType,
+    setGreetingSubtype,
     setRecipientDetails,
     setSelectedVideo,
 

@@ -5,6 +5,7 @@ import Button from '../../components/button/Button';
 import ButtonContainer from '../../components/button/ButtonContainer';
 import { greetings } from '../../constants/greetings';
 import { useGreeting } from '../../context/GreetingContext';
+import { hasSubtypes } from '../../constants/greetingSubtypes';
 
 export default function GreetingDetailsPage() {
   const navigate = useNavigate();
@@ -24,7 +25,7 @@ export default function GreetingDetailsPage() {
     setSelectedId(id);
   };
 
-  // Navigate to greeting receiving page
+  // Navigate to next page based on selection
   const handleNext = () => {
     // Find the selected greeting
     const selectedGreeting = greetings.find(
@@ -34,9 +35,19 @@ export default function GreetingDetailsPage() {
     if (selectedGreeting) {
       // Save to context
       setGreetingType(selectedGreeting.name, selectedId);
-    }
 
-    navigate('/sender-details');
+      // Check if this greeting type has subtypes
+      if (hasSubtypes(selectedId)) {
+        // If it has subtypes, go to the subtype selection page
+        navigate('/greeting-subtype');
+      } else {
+        // Otherwise, continue with the normal flow
+        navigate('/greeting-receiving');
+      }
+    } else {
+      // If no greeting is selected, continue with the normal flow
+      navigate('/greeting-receiving');
+    }
   };
 
   return (
@@ -44,7 +55,7 @@ export default function GreetingDetailsPage() {
       {/* Heading */}
       <div className='w-full text-center mb-4 md:mb-6'>
         <h1 className='typography-heading'>
-          What do you want to congratulate with?
+          What type of greeting would you like to send?
         </h1>
       </div>
 

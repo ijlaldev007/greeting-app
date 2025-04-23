@@ -16,6 +16,7 @@ import SignUp from './pages/signup/SignUp';
 import SenderDetail from './pages/senderdetail/SenderDetail';
 import GreetingLocation from './pages/greetinglocation/GreetingLocation';
 import GreetingDetails from './pages/greetingdetails/GreetingDetails';
+import GreetingSubtype from './pages/greetingsubtype/GreetingSubtype';
 import GreetingReceiving from './pages/greetingreceiving/GreetingReceiving';
 import TextPreview from './pages/textpreview/TextPreview';
 import GreetingDone from './pages/greetingdone/GreetingDone';
@@ -69,6 +70,7 @@ function App() {
                   element={<GreetingLocation />}
                 />
                 <Route path='/greeting-details' element={<GreetingDetails />} />
+                <Route path='/greeting-subtype' element={<GreetingSubtype />} />
                 <Route
                   path='/greeting-receiving'
                   element={<GreetingReceiving />}
